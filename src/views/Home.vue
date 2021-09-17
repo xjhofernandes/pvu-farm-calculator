@@ -27,14 +27,55 @@
   <div class="hero-body bg-primary">
     <div class="container notification" style="height: 100vh; background: #605080">
       <div class="columns" >
-        <div class="column is-7 is-fullwidth">
-          <div>
-            <h1>TESTE</h1>
+        <div class="column is-7 " style="background: #7F719A">
+          <div class="is-size-2 has-text-centered has-text-weight-bold">
+            Plantas
           </div>
         </div>
-        <div class="column is-4 is-fullwidth">
-          <div>
-            <h1>TESTE</h1>
+        <div class="column is-5 ml-2" style="background: #7F719A">
+          <div class="container">
+            <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
+              Ganhos por período
+            </div>
+            <div class="is-flex is-align-items-center">
+              <div class="is-size-4 mr-2">
+                07D
+              </div>
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="is-flex is-align-items-center mt-3">
+              <div class="is-size-4 mr-2">
+                14D
+              </div>
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="is-flex is-align-items-center mt-3">
+              <div class="is-size-4 mr-2">
+                30D
+              </div>
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                  </div>
+                </div>
+              </div>
+            </div>   
+                            
           </div>
         </div>        
       </div>
