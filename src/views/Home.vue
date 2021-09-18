@@ -25,81 +25,180 @@
 
 <section class="hero is-link is-fullheight-with-navbar">
   <div class="hero-body bg-primary">
-    <div class="container notification" style="height: 100vh; background: #605080">
+    <div class="container notification" style="background: #605080">
       <div class="columns">
 
         <div class="column is-8">
            <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
               Minha plantação
             </div>          
-          <div class="container">
-              <div class="container is-fluid has-text-centered"  style="background: #7F719A"> 
-                <div class="columns is-multiline">
-                  <div class="column is-one-third has-background-white mr-2 mt-2">
-                    <div class="field has-text-black">
-                      <label class="label">Tipo</label>
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer">
-                          Planta
-                        </label>
-                        <label class="radio">
-                          <input type="radio" name="answer">
-                          Mama
-                        </label>
-                      </div>
-                    </div>
-
-                  <div class="is-flex">
-                   <div class="field">
-                      <label class="label">Custo total</label>
-                      <div class="control">
-                        <input class="input" type="number" placeholder="150">
-                      </div>
-                    </div>                    
-
-                    <div class="field ml-2">
-                      <label class="label">Produção</label>
-                      <div class="control">
-                        <input class="input" type="number" placeholder="250">
-                      </div>
+            <div class="container is-fluid has-text-centered"  style="background: #7F719A"> 
+              <div class="columns is-multiline">
+                <div class="column is-one-third has-background-white mr-2 mt-2 mb-2">
+                  <div class="field has-text-black">
+                    <label class="label">Tipo</label>
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer">
+                        Planta
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="answer">
+                        Mama
+                      </label>
                     </div>
                   </div>
 
-                    <div class="field">
-                      <label class="label">Horas de produção</label>
-                      <div class="control">
-                        <input class="input" type="number" placeholder="72">
-                      </div>
+                <div class="is-flex">
+                  <div class="field">
+                    <label class="label">Custo total</label>
+                    <div class="control">
+                      <input class="input" type="number" placeholder="150">
                     </div>
+                  </div>                    
 
-                    <div class="field">
-                      <label class="label ">Dia de plantação
-                      <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
-                      </label>
-                      <div class="control">
-                        <input class="input" type="date">
-                      </div>
-                    </div>                    
-
-                    <div class="mt-5 has-text-centered">
-                      <button class="button is-success">Adicionar</button>
+                  <div class="field ml-2">
+                    <label class="label">Produção</label>
+                    <div class="control">
+                      <input class="input" type="number" placeholder="250">
                     </div>
                   </div>
                 </div>
-              </div>              
-          </div>
+
+                  <div class="field">
+                    <label class="label">Horas de produção</label>
+                    <div class="control">
+                      <input class="input" type="number" placeholder="72">
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label ">Dia de plantação
+                    <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
+                    </label>
+                    <div class="control">
+                      <input class="input" type="date">
+                    </div>
+                  </div>                    
+
+                  <div class="mt-5 has-text-centered">
+                    <button class="button is-success">Adicionar</button>
+                  </div>
+                </div>
+                                <div class="column is-one-third has-background-white mr-2 mt-2 mb-2">
+                  <div class="field has-text-black">
+                    <label class="label">Tipo</label>
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer">
+                        Planta
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="answer">
+                        Mama
+                      </label>
+                    </div>
+                  </div>
+
+                <div class="is-flex">
+                  <div class="field">
+                    <label class="label">Custo total</label>
+                    <div class="control">
+                      <input class="input" type="number" placeholder="150">
+                    </div>
+                  </div>                    
+
+                  <div class="field ml-2">
+                    <label class="label">Produção</label>
+                    <div class="control">
+                      <input class="input" type="number" placeholder="250">
+                    </div>
+                  </div>
+                </div>
+
+                  <div class="field">
+                    <label class="label">Horas de produção</label>
+                    <div class="control">
+                      <input class="input" type="number" placeholder="72">
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label ">Dia de plantação
+                    <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
+                    </label>
+                    <div class="control">
+                      <input class="input" type="date">
+                    </div>
+                  </div>                    
+
+                  <div class="mt-5 has-text-centered">
+                    <button class="button is-success">Adicionar</button>
+                  </div>
+                </div>
+                                <div class="column is-one-third has-background-white mr-2 mt-2 mb-2">
+                  <div class="field has-text-black">
+                    <label class="label">Tipo</label>
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer">
+                        Planta
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="answer">
+                        Mama
+                      </label>
+                    </div>
+                  </div>
+
+                <div class="is-flex">
+                  <div class="field">
+                    <label class="label">Custo total</label>
+                    <div class="control">
+                      <input class="input" type="number" placeholder="150">
+                    </div>
+                  </div>                    
+
+                  <div class="field ml-2">
+                    <label class="label">Produção</label>
+                    <div class="control">
+                      <input class="input" type="number" placeholder="250">
+                    </div>
+                  </div>
+                </div>
+
+                  <div class="field">
+                    <label class="label">Horas de produção</label>
+                    <div class="control">
+                      <input class="input" type="number" placeholder="72">
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label ">Dia de plantação
+                    <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
+                    </label>
+                    <div class="control">
+                      <input class="input" type="date">
+                    </div>
+                  </div>                    
+
+                  <div class="mt-5 has-text-centered">
+                    <button class="button is-success">Adicionar</button>
+                  </div>
+                </div>
+              </div>
+            </div>              
         </div>
 
-        <div class="column is-4 ml-2" style="background: #7F719A;">
-            <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
+        <div class="column is-4">
+            <div class="is-size-2 has-text-centered has-text-weight-bold mb-3">
               Ganhos por período
             </div>
-          <div class="container">
-
-            <div class="is-flex is-align-items-center mt-3 mb-3 is-justify-content-space-between">
+          <div class="container is-size-3 p-1" style="background: #7F719A;">
+            <div class="is-flex is-align-items-center is-justify-content-space-between">
               <span class="tag is-primary is-large">Moeda</span>
-                <div class="dropdown ">
+                <div class="dropdown mt-2">
                   <div class="dropdown-trigger">
                       <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                         <span>BRL (R$)</span>
@@ -192,9 +291,8 @@
                 </div>
               </div>
             </div>
-
-<button class="button is-large is-fullwidth mt-3 is-primary">Atualizar Valores</button>
           </div>
+        <button class="button is-large is-fullwidth mt-3 is-primary">Atualizar Valores</button>
         </div>        
       </div>
     </div>
