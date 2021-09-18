@@ -28,14 +28,14 @@
     <div class="container notification" style="height: 100vh; background: #605080">
       <div class="columns">
 
-        <div class="column is-8 ">
+        <div class="column is-8">
+           <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
+              Minha plantação
+            </div>          
           <div class="container">
-
-            <div class="notification" style="background: #7F719A">
-
-              <div class="container is-fluid has-text-centered">
+              <div class="container is-fluid has-text-centered"  style="background: #7F719A"> 
                 <div class="columns is-multiline">
-                  <div class="column is-one-third has-background-white">
+                  <div class="column is-one-third has-background-white mr-2 mt-2">
                     <div class="field has-text-black">
                       <label class="label">Tipo</label>
                       <div class="control">
@@ -88,15 +88,14 @@
                   </div>
                 </div>
               </div>              
-            </div>
           </div>
         </div>
 
         <div class="column is-4 ml-2" style="background: #7F719A;">
-          <div class="container">
             <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
               Ganhos por período
             </div>
+          <div class="container">
 
             <div class="is-flex is-align-items-center mt-3 mb-3 is-justify-content-space-between">
               <span class="tag is-primary is-large">Moeda</span>
