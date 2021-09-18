@@ -77,7 +77,7 @@
 
                     <div class="mt-5 is-flex">
                       <button class="button is-warning">Editar</button>
-                      <button class="button is-danger ml-6 ">Remover</button>
+                      <button class="button is-danger ml-6 " @click="remover_planta(index)">Remover</button>
                     </div>
                   </div>
                 </div>
@@ -278,6 +278,10 @@ export default {
     adicionar_nova_planta(nova_plantacao) {
       this.listagem_plantacoes.push(nova_plantacao);
       this.nova_plantacao = {};
+    },
+    remover_planta(index) {
+      console.log(index);
+      this.listagem_plantacoes.splice(index, 1);
     }
   }
 };
