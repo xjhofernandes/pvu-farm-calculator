@@ -38,20 +38,29 @@
               Ganhos por período
             </div>
             <div class="is-flex is-align-items-center">
-              <div class="is-size-4 mr-2">
+              <div class="is-size-5 mr-2">
                 07D
               </div>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
-                    Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                      <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
+                        * Lucros : 
+                      </div>
+                      <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
+                        * Gastos : 
+                      </div>
+                      <div class="is-size-5">
+                        * Produzido :
+                      </div>           
+                                 
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="is-flex is-align-items-center mt-3">
-              <div class="is-size-4 mr-2">
+              <div class="is-size-5 mr-2">
                 14D
               </div>
               <div class="card">
@@ -64,7 +73,7 @@
             </div>
 
             <div class="is-flex is-align-items-center mt-3">
-              <div class="is-size-4 mr-2">
+              <div class="is-size-5 mr-2">
                 30D
               </div>
               <div class="card">
@@ -75,7 +84,7 @@
                 </div>
               </div>
             </div>   
-                            
+
           </div>
         </div>        
       </div>
