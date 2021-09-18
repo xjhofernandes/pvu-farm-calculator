@@ -251,7 +251,7 @@
               </div>
             </div>
           </div>
-        <button class="button is-large is-fullwidth mt-3 is-primary">Atualizar Valores</button>
+        <button class="button is-large is-fullwidth mt-3 is-primary" @click="atualizar_valores()">Atualizar Valores</button>
         </div>        
       </div>
     </div>
@@ -280,7 +280,7 @@ export default {
           "producao": Number, 
           "horas_producao": Number,
           "custo_total": Number,
-          "nft": Boolean
+          "nft": false
         },
       listagem_plantacoes : [],
     };
@@ -288,10 +288,46 @@ export default {
   methods: {
     adicionar_nova_planta(nova_plantacao) {
       this.listagem_plantacoes.push(nova_plantacao);
-      this.nova_plantacao = {};
+      this.nova_plantacao = {
+          "tipo": "", 
+          "producao": Number, 
+          "horas_producao": Number,
+          "custo_total": Number,
+          "nft": false
+        }
     },
     remover_planta(index) {
       this.listagem_plantacoes.splice(index, 1);
+    },
+    async obter_lucros(listagem_plantacoes) {
+      console.log("listagem:")
+      console.log(listagem_plantacoes)
+      
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(listagem_plantacoes),
+      };
+      
+      let data = await fetch(
+        "http://localhost:8000/api/obter-periodo-lucros",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          return data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+        console.log(data);
+      return data;
+    },
+    async atualizar_valores(){
+      this.ganhos_periodo = await this.obter_lucros(this.listagem_plantacoes);
     }
   }
 };
