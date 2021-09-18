@@ -36,7 +36,7 @@
               <div class="container is-fluid">
                 <div class="columns is-multiline">
                   <div class="column is-one-quarter has-background-white">
-
+                    
                     <div class="field has-text-black">
                       <label class="label">Tipo</label>
                       <div class="control">
@@ -54,21 +54,21 @@
                    <div class="field">
                       <label class="label">Custo total</label>
                       <div class="control">
-                        <input class="input" type="text" placeholder="e.g Alex Smith">
+                        <input class="input" type="number" placeholder="150">
                       </div>
                     </div>                    
 
                     <div class="field">
                       <label class="label">Produção</label>
                       <div class="control">
-                        <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                        <input class="input" type="number" placeholder="250">
                       </div>
                     </div>
 
                     <div class="field">
                       <label class="label">Horas de produção</label>
                       <div class="control">
-                        <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                        <input class="input" type="number" placeholder="72">
                       </div>
                     </div>
 
@@ -77,11 +77,11 @@
                       <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
                       </label>
                       <div class="control">
-                        <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com">
+                        <input class="input" type="date">
                       </div>
                     </div>                    
 
-                    <div class="buttons">
+                    <div class="mt-5 has-text-centered">
                       <button class="button is-success">Adicionar</button>
                     </div>
                   </div>
