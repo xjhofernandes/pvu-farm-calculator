@@ -89,6 +89,54 @@
                   </div>
                 </div>
 
+                
+                <div class="column is-4">
+                  <div class="has-background-white p-5 notification is-fullheight">
+                    <div class="field has-text-black">
+                      <label class="label">Tipo</label>
+                      <div class="control">
+                        <label class="radio">
+                          <input type="radio" name="answer" checked disabled>
+                          Planta
+                        </label>
+                        <label class="radio" >
+                          <input type="radio" name="answer" disabled>
+                          Mama
+                        </label>
+                      </div>
+                    </div>
+
+                  <div class="is-flex">
+                    <div class="field">
+                      <label class="label">Custo total</label>
+                      <span class="tag is-info is-light is-large">250</span>
+                    </div>                    
+
+                    <div class="field ml-2">
+                      <label class="label">Produção</label>
+                      <span class="tag is-info is-light is-large">850</span>
+                    </div>
+                  </div>
+
+                    <div class="field">
+                      <label class="label">Horas de produção</label>
+                        <span class="tag is-info is-light is-large">144</span>
+                    </div>
+
+                    <div class="field">
+                      <label class="label ">Dia de plantação
+                      <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
+                      </label>
+                        <span class="tag is-info is-light is-large">10/10/21</span>
+                    </div>                    
+
+                    <div class="mt-5 is-flex">
+                      <button class="button is-warning">Editar</button>
+                      <button class="button is-danger ml-6 ">Remover</button>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>              
         </div>
