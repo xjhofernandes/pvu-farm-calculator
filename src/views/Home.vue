@@ -28,15 +28,14 @@
     <div class="container notification" style="height: 100vh; background: #605080">
       <div class="columns">
 
-        <div class="column is-8 " style="background: #7F719A">
+        <div class="column is-8 ">
           <div class="container">
 
-            <div class="notification is-success">
+            <div class="notification" style="background: #7F719A">
 
-              <div class="container is-fluid">
+              <div class="container is-fluid has-text-centered">
                 <div class="columns is-multiline">
-                  <div class="column is-one-quarter has-background-white">
-                    
+                  <div class="column is-one-third has-background-white">
                     <div class="field has-text-black">
                       <label class="label">Tipo</label>
                       <div class="control">
@@ -51,6 +50,7 @@
                       </div>
                     </div>
 
+                  <div class="is-flex">
                    <div class="field">
                       <label class="label">Custo total</label>
                       <div class="control">
@@ -58,12 +58,13 @@
                       </div>
                     </div>                    
 
-                    <div class="field">
+                    <div class="field ml-2">
                       <label class="label">Produção</label>
                       <div class="control">
                         <input class="input" type="number" placeholder="250">
                       </div>
                     </div>
+                  </div>
 
                     <div class="field">
                       <label class="label">Horas de produção</label>
@@ -73,7 +74,7 @@
                     </div>
 
                     <div class="field">
-                      <label class="label">Dia de plantação
+                      <label class="label ">Dia de plantação
                       <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
                       </label>
                       <div class="control">
