@@ -26,65 +26,121 @@
 <section class="hero is-link is-fullheight-with-navbar">
   <div class="hero-body bg-primary">
     <div class="container notification" style="height: 100vh; background: #605080">
-      <div class="columns" >
-        <div class="column is-7 " style="background: #7F719A">
-          <div class="is-size-2 has-text-centered has-text-weight-bold">
-            Plantas
-          </div>
+      <div class="columns">
+
+        <div class="column is-8 " style="background: #7F719A">
+<section class="section is-large">
+  <h1 class="title">Large section</h1>
+  <h2 class="subtitle">
+    A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading.
+  </h2>
+</section>
+
         </div>
-        <div class="column is-5 ml-2" style="background: #7F719A">
+
+        <div class="column is-4 ml-2" style="background: #7F719A;">
           <div class="container">
             <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
               Ganhos por período
             </div>
-            <div class="is-flex is-align-items-center">
-              <div class="is-size-5 mr-2">
-                07D
-              </div>
+
+            <div class="is-flex is-align-items-center mt-3 mb-3 is-justify-content-space-between">
+              <span class="tag is-primary is-large">Moeda</span>
+                <div class="dropdown ">
+                  <div class="dropdown-trigger">
+                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                        <span>BRL (R$)</span>
+                          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                      <div class="dropdown-content">
+                        <a href="#" class="dropdown-item">
+                          Dollar ($)
+                        </a>
+                        <a class="dropdown-item">
+                          Euro (€)
+                        </a>
+                        <a href="#" class="dropdown-item">
+                          BNB
+                        </a>
+                        <a href="#" class="dropdown-item">
+                          PVU
+                        </a>              
+                      </div>
+                    </div>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true">^</i>
+                    </span>
+                  </button>
+                </div>
+              </div>         
+            </div>             
+
+            <div class="is-flex is-align-items-center is-justify-content-space-between">
+              <span class="tag is-primary is-large">7 Dias</span>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        * Lucros : 
+                        Lucros : 1600 <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        * Gastos : 
+                        Gastos : 1600 <b>LE</b>
+                      </div>
+                      <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
+                        Produzido : 1600 <b>LE</b>
                       </div>
                       <div class="is-size-5">
-                        * Produzido :
-                      </div>           
-                                 
+                        Faturamento : 1900 <b>BRL (R$)</b>
+                      </div>    
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="is-flex is-align-items-center mt-3">
-              <div class="is-size-5 mr-2">
-                14D
-              </div>
+            <div class="is-flex is-align-items-center mt-3 is-justify-content-space-between">
+            <span class="tag is-primary is-large">14 Dias</span>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
-                    Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                      <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
+                        Lucros : 1600 <b>LE</b>
+                      </div>
+                      <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
+                        Gastos : 1600 <b>LE</b>
+                      </div>
+                      <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
+                        Produzido : 1600 <b>LE</b>
+                      </div>
+                      <div class="is-size-5">
+                        Faturamento : 1900 <b>BRL (R$)</b>
+                      </div>                      
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="is-flex is-align-items-center mt-3">
-              <div class="is-size-5 mr-2">
-                30D
-              </div>
+            <div class="is-flex is-align-items-center mt-3 is-justify-content-space-between">
+            <span class="tag is-primary is-large">30 Dias</span>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
-                    Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                      <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
+                        Lucros : 1600 <b>LE</b>
+                      </div>
+                      <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
+                        Gastos : 1600 <b>LE</b>
+                      </div>
+                      <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
+                        Produzido : 1600 <b>LE</b>
+                      </div>
+                      <div class="is-size-5">
+                        Faturamento : 1900 <b>BRL (R$)</b>
+                      </div>                     
                   </div>
                 </div>
               </div>
-            </div>   
+            </div>
 
+<button class="button is-large is-fullwidth mt-3 is-primary">Atualizar Valores</button>
           </div>
         </div>        
       </div>
