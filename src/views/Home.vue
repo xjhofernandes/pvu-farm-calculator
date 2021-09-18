@@ -34,62 +34,7 @@
             </div>          
             <div class="box is-fluid has-text-centered"  style="background: #7F719A"> 
               <div class="columns is-multiline">
-
-                <div class="column is-4">
-                  <div class="has-background-white p-5 notification">
-                    <div class="field has-text-black">
-                      <label class="label">Tipo</label>
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer">
-                          Planta
-                        </label>
-                        <label class="radio">
-                          <input type="radio" name="answer">
-                          Mama
-                        </label>
-                      </div>
-                    </div>
-
-                  <div class="is-flex">
-                    <div class="field">
-                      <label class="label">Custo total</label>
-                      <div class="control">
-                        <input class="input" type="number" placeholder="150">
-                      </div>
-                    </div>                    
-
-                    <div class="field ml-2">
-                      <label class="label">Produção</label>
-                      <div class="control">
-                        <input class="input" type="number" placeholder="250">
-                      </div>
-                    </div>
-                  </div>
-
-                    <div class="field">
-                      <label class="label">Horas de produção</label>
-                      <div class="control">
-                        <input class="input" type="number" placeholder="72">
-                      </div>
-                    </div>
-
-                    <div class="field">
-                      <label class="label ">Dia de plantação
-                      <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
-                      </label>
-                      <div class="control">
-                        <input class="input" type="date">
-                      </div>
-                    </div>                    
-
-                    <div class="mt-5 has-text-centered">
-                      <button class="button is-success">Adicionar</button>
-                    </div>
-                  </div>
-                </div>
-
-                
+               
                 <div class="column is-4">
                   <div class="has-background-white p-5 notification is-fullheight">
                     <div class="field has-text-black">
@@ -133,6 +78,60 @@
                     <div class="mt-5 is-flex">
                       <button class="button is-warning">Editar</button>
                       <button class="button is-danger ml-6 ">Remover</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column is-4">
+                  <div class="has-background-white p-5 notification">
+                    <div class="field has-text-black">
+                      <label class="label">Tipo</label>
+                      <div class="control">
+                        <label class="radio">
+                          <input type="radio" v-model="nova_plantacao.tipo" id="planta" value="planta">
+                          Planta
+                        </label>
+                        <label class="radio">
+                          <input type="radio" v-model="nova_plantacao.tipo" id="mother" value="mother">
+                          Mama
+                        </label>
+                      </div>
+                    </div>
+
+                  <div class="is-flex">
+                    <div class="field">
+                      <label class="label">Custo total</label>
+                      <div class="control">
+                        <input class="input" type="number" placeholder="150" v-model="nova_plantacao.custo_total">
+                      </div>
+                    </div>                    
+
+                    <div class="field ml-2">
+                      <label class="label">Produção</label>
+                      <div class="control">
+                        <input class="input" type="number" placeholder="250" v-model="nova_plantacao.producao">
+                      </div>
+                    </div>
+                  </div>
+
+                    <div class="field">
+                      <label class="label">Horas de produção</label>
+                      <div class="control">
+                        <input class="input" type="number" placeholder="72" v-model="nova_plantacao.horas_producao">
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label ">Dia de plantação
+                      <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
+                      </label>
+                      <div class="control">
+                        <input class="input" type="date">
+                      </div>
+                    </div>                    
+
+                    <div class="mt-5 has-text-centered">
+                      <button class="button is-success">Adicionar</button>
                     </div>
                   </div>
                 </div>
@@ -263,7 +262,16 @@ export default {
         [
           {'periodo': '7d', 'produzido': 0, 'custo': 0, 'lucro': 0},
           {'periodo': '14d', 'produzido': 0, 'custo': 0, 'lucro': 0},
-          {'periodo': '30d', 'produzido': 0, 'custo': 0, 'lucro': 0}]
+          {'periodo': '30d', 'produzido': 0, 'custo': 0, 'lucro': 0}
+        ],
+      nova_plantacao :
+        {
+          "tipo": "", 
+          "producao": Number, 
+          "horas_producao": Number,
+          "custo_total": Number
+        },
+      listagem_plantacoes : [],
     };
   },
 };
