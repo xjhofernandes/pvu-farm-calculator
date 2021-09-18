@@ -34,18 +34,18 @@
             </div>          
             <div class="box is-fluid has-text-centered"  style="background: #7F719A"> 
               <div class="columns is-multiline">
-               
-                <div class="column is-4">
+
+                <div class="column is-4" v-for="(plantacao, index) in listagem_plantacoes" :key="index">
                   <div class="has-background-white p-5 notification is-fullheight">
                     <div class="field has-text-black">
                       <label class="label">Tipo</label>
                       <div class="control">
                         <label class="radio">
-                          <input type="radio" name="answer" checked disabled>
+                          <input type="radio" name="answer" disabled :checked="plantacao.tipo == 'plant'">
                           Planta
                         </label>
                         <label class="radio" >
-                          <input type="radio" name="answer" disabled>
+                          <input type="radio" name="answer" disabled :checked="plantacao.tipo == 'mother'">
                           Mama
                         </label>
                       </div>
@@ -54,18 +54,18 @@
                   <div class="is-flex">
                     <div class="field">
                       <label class="label">Custo total</label>
-                      <span class="tag is-info is-light is-large">250</span>
+                      <span class="tag is-info is-light is-large">{{ plantacao.custo_total }}</span>
                     </div>                    
 
                     <div class="field ml-5">
                       <label class="label">Produção</label>
-                      <span class="tag is-info is-light is-large">850</span>
+                      <span class="tag is-info is-light is-large">{{ plantacao.producao}}</span>
                     </div>
                   </div>
 
                     <div class="field">
                       <label class="label">Horas de produção</label>
-                        <span class="tag is-info is-light is-large">144</span>
+                        <span class="tag is-info is-light is-large">{{ plantacao.horas_producao}}</span>
                     </div>
 
                     <div class="field">
@@ -88,7 +88,7 @@
                       <label class="label">Tipo</label>
                       <div class="control">
                         <label class="radio">
-                          <input type="radio" v-model="nova_plantacao.tipo" id="planta" value="planta">
+                          <input type="radio" v-model="nova_plantacao.tipo" id="plant" value="plant">
                           Planta
                         </label>
                         <label class="radio">
@@ -131,7 +131,7 @@
                     </div>                    
 
                     <div class="mt-5 has-text-centered">
-                      <button class="button is-success">Adicionar</button>
+                      <button class="button is-success" @click="adicionar_nova_planta(nova_plantacao)">Adicionar</button>
                     </div>
                   </div>
                 </div>
@@ -274,6 +274,12 @@ export default {
       listagem_plantacoes : [],
     };
   },
+  methods: {
+    adicionar_nova_planta(nova_plantacao) {
+      this.listagem_plantacoes.push(nova_plantacao);
+      this.nova_plantacao = {};
+    }
+  }
 };
 </script>
 
