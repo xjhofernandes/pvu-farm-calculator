@@ -50,12 +50,16 @@
                         </label>
                       </div>
                     </div>
+                  <label class="checkbox is-size-6">
+                    <input type="checkbox" :checked="plantacao.nft">
+                    NFT?
+                  </label>
 
                   <div class="is-flex">
                     <div class="field">
                       <label class="label">Custo total</label>
                       <span class="tag is-info is-light is-large">{{ plantacao.custo_total }}</span>
-                    </div>                    
+                    </div>           
 
                     <div class="field ml-5">
                       <label class="label">Produção</label>
@@ -76,7 +80,7 @@
                     </div>                    
 
                     <div class="mt-5 is-flex">
-                      <button class="button is-warning">Editar</button>
+                      <button class="button is-warning" disabled>Editar</button>
                       <button class="button is-danger ml-6 " @click="remover_planta(index)">Remover</button>
                     </div>
                   </div>
@@ -98,9 +102,15 @@
                       </div>
                     </div>
 
+                  <label class="checkbox is-size-6">
+                    <input type="checkbox" v-model="nova_plantacao.nft">
+                    NFT?
+                  </label>
+
                   <div class="is-flex">
                     <div class="field">
                       <label class="label">Custo total</label>
+
                       <div class="control">
                         <input class="input" type="number" placeholder="150" v-model="nova_plantacao.custo_total">
                       </div>
@@ -269,7 +279,8 @@ export default {
           "tipo": "", 
           "producao": Number, 
           "horas_producao": Number,
-          "custo_total": Number
+          "custo_total": Number,
+          "nft": Boolean
         },
       listagem_plantacoes : [],
     };
@@ -280,7 +291,6 @@ export default {
       this.nova_plantacao = {};
     },
     remover_planta(index) {
-      console.log(index);
       this.listagem_plantacoes.splice(index, 1);
     }
   }
