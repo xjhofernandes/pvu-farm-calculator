@@ -112,7 +112,7 @@
                       <span class="tag is-info is-light is-large">250</span>
                     </div>                    
 
-                    <div class="field ml-2">
+                    <div class="field ml-5">
                       <label class="label">Produção</label>
                       <span class="tag is-info is-light is-large">850</span>
                     </div>
