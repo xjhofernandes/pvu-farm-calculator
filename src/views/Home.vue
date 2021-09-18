@@ -29,13 +29,66 @@
       <div class="columns">
 
         <div class="column is-8 " style="background: #7F719A">
-<section class="section is-large">
-  <h1 class="title">Large section</h1>
-  <h2 class="subtitle">
-    A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading.
-  </h2>
-</section>
+          <div class="container">
 
+            <div class="notification is-success">
+
+              <div class="container is-fluid">
+                <div class="columns is-multiline">
+                  <div class="column is-one-quarter has-background-white">
+
+                    <div class="field has-text-black">
+                      <label class="label">Tipo</label>
+                      <div class="control">
+                        <label class="radio">
+                          <input type="radio" name="answer">
+                          Planta
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="answer">
+                          Mama
+                        </label>
+                      </div>
+                    </div>
+
+                   <div class="field">
+                      <label class="label">Custo total</label>
+                      <div class="control">
+                        <input class="input" type="text" placeholder="e.g Alex Smith">
+                      </div>
+                    </div>                    
+
+                    <div class="field">
+                      <label class="label">Produção</label>
+                      <div class="control">
+                        <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Horas de produção</label>
+                      <div class="control">
+                        <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Dia de plantação
+                      <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
+                      </label>
+                      <div class="control">
+                        <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com">
+                      </div>
+                    </div>                    
+
+                    <div class="buttons">
+                      <button class="button is-success">Adicionar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+            </div>
+          </div>
         </div>
 
         <div class="column is-4 ml-2" style="background: #7F719A;">
