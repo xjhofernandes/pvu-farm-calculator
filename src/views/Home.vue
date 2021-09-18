@@ -182,13 +182,13 @@
                 <div class="card-content">
                   <div class="content">
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Lucros : 1600 <b>LE</b>
+                        Lucros : {{ ganhos_periodo[0]["lucro"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Gastos : 1600 <b>LE</b>
+                        Gastos : {{ ganhos_periodo[0]["custo"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Produzido : 1600 <b>LE</b>
+                        Produzido : {{ ganhos_periodo[0]["produzido"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5">
                         Faturamento : 1900 <b>BRL (R$)</b>
@@ -204,13 +204,13 @@
                 <div class="card-content">
                   <div class="content">
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Lucros : 1600 <b>LE</b>
+                        Lucros : {{ ganhos_periodo[1]["lucro"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Gastos : 1600 <b>LE</b>
+                        Gastos : {{ ganhos_periodo[1]["custo"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Produzido : 1600 <b>LE</b>
+                        Produzido : {{ ganhos_periodo[1]["produzido"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5">
                         Faturamento : 1900 <b>BRL (R$)</b>
@@ -226,13 +226,13 @@
                 <div class="card-content">
                   <div class="content">
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Lucros : 1600 <b>LE</b>
+                        Lucros : {{ ganhos_periodo[2]["lucro"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Gastos : 1600 <b>LE</b>
+                        Gastos : {{ ganhos_periodo[2]["custo"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Produzido : 1600 <b>LE</b>
+                        Produzido : {{ ganhos_periodo[2]["produzido"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5">
                         Faturamento : 1900 <b>BRL (R$)</b>
@@ -258,7 +258,13 @@ export default {
   components: {
   },
   data() {
-    return { };
+    return { 
+      ganhos_periodo :
+        [
+          {'periodo': '7d', 'produzido': 0, 'custo': 0, 'lucro': 0},
+          {'periodo': '14d', 'produzido': 0, 'custo': 0, 'lucro': 0},
+          {'periodo': '30d', 'produzido': 0, 'custo': 0, 'lucro': 0}]
+    };
   },
 };
 </script>
