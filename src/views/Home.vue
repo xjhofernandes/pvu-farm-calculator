@@ -251,7 +251,7 @@
               </div>
             </div>
           </div>
-        <button class="button is-large is-fullwidth mt-3 is-primary" @click="atualizar_valores()">Atualizar Valores</button>
+        <button class="button is-large is-fullwidth mt-3 is-primary" @click="atualizar_valores()" :class="is_loading ? 'is-loading' : ''">Atualizar Valores</button>
         </div>        
       </div>
     </div>
@@ -265,7 +265,8 @@ export default {
   components: {
   },
   data() {
-    return { 
+    return {
+      is_loading: false,
       ganhos_periodo :
         [
           {'periodo': '7d', 'produzido': 0, 'custo': 0, 'lucro': 0},
@@ -311,7 +312,7 @@ export default {
       this.listagem_plantacoes.splice(index, 1);
     },
     async obter_lucros(listagem_plantacoes) {
-      console.log("listagem:")
+      this.is_loading = true;
       console.log(listagem_plantacoes)
       
       const requestOptions = {
@@ -334,7 +335,7 @@ export default {
         .catch((error) => {
           console.error(error);
         });
-        console.log(data);
+        this.is_loading = false;
       return data;
     },
     async atualizar_valores(){
