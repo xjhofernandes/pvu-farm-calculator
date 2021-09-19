@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
+from typing import Optional
 
 class Plant(BaseModel):
     tipo: str
@@ -7,4 +8,4 @@ class Plant(BaseModel):
     horas_producao: int
     custo_total: int
     nft: bool
-    moeda: str
+    moeda: Optional[str] = None

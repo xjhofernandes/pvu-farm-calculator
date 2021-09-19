@@ -3,7 +3,6 @@ from dateutil.parser import parse
 from schema.plant import Plant
 
 import pandas as pd
-from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 
@@ -58,6 +57,9 @@ def obter_frequencia_total(listagem_time: list, data_inicio_str: str) -> list:
     
 
     lista_saida = lista_df.groupby("frequencia").sum().reset_index().sort_values("frequencia").to_dict("records")
+    lista_saida[0]["faturamento"] = round(lista_saida[0]["lucro"] / 150, 2)
+    lista_saida[1]["faturamento"] = round(lista_saida[1]["lucro"] / 150, 2)
+    lista_saida[2]["faturamento"] = round(lista_saida[2]["lucro"] / 150, 2)
     
     return lista_saida
 
