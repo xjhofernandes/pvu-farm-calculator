@@ -93,7 +93,7 @@
                       <label class="label is-small">Tipo</label>
                       <div class="control">
                         <label class="radio">
-                          <input type="radio" v-model="nova_plantacao.tipo" id="plant" value="plant">
+                          <input type="radio" v-model="nova_plantacao.tipo" id="plant" value="plant" checked>
                           Plant
                         </label>
                         <label class="radio">
@@ -288,19 +288,23 @@ export default {
   },
   methods: {
     adicionar_nova_planta(nova_plantacao) {
+      
       console.log(nova_plantacao);
       if (nova_plantacao.nft == true){
         nova_plantacao.custo_total = 0;
       }
 
-      this.listagem_plantacoes.push(nova_plantacao);
-      this.nova_plantacao = {
-          "tipo": "", 
-          "producao": Number, 
-          "horas_producao": Number,
-          "custo_total": Number,
-          "nft": false
-        }
+      if (! isNaN(nova_plantacao.producao) || !isNaN(nova_plantacao.horas_producao) || !isNaN(nova_plantacao.custo_total)){
+        this.listagem_plantacoes.push(nova_plantacao);
+        this.nova_plantacao = {
+            "tipo": "", 
+            "producao": Number, 
+            "horas_producao": Number,
+            "custo_total": Number,
+            "nft": false
+          };
+      }
+
     },
     duplicar_planta(index) {
       this.listagem_plantacoes.push(this.listagem_plantacoes[index]);
@@ -352,5 +356,6 @@ export default {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+  background-attachment: fixed;
 }
 </style>
