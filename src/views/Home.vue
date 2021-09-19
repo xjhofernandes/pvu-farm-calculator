@@ -80,8 +80,8 @@
                     </div>                    
 
                     <div class="mt-5 is-flex">
-                      <button class="button is-warning" disabled>Editar</button>
-                      <button class="button is-danger ml-6 " @click="remover_planta(index)">Remover</button>
+                      <button class="button is-link" @click="duplicar_planta(index)">Duplicar</button>
+                      <button class="button is-danger ml-3" @click="remover_planta(index)">Remover</button>
                     </div>
                   </div>
                 </div>
@@ -295,6 +295,9 @@ export default {
           "custo_total": Number,
           "nft": false
         }
+    },
+    duplicar_planta(index) {
+      this.listagem_plantacoes.push(this.listagem_plantacoes[index]);
     },
     remover_planta(index) {
       this.listagem_plantacoes.splice(index, 1);
