@@ -38,8 +38,8 @@
 
                 <div class="column is-4" v-for="(plantacao, index) in listagem_plantacoes" :key="index">
                   <div class="has-background-white p-5 notification is-fullheight">
-                    <div class="field has-text-black">
-                      <label class="label">Tipo</label>
+                    <div class="has-text-black " >
+                      <label class="label is-small">Tipo</label>
                       <div class="control">
                         <label class="radio">
                           <input type="radio" name="answer" disabled :checked="plantacao.tipo == 'plant'">
@@ -52,97 +52,97 @@
                       </div>
                     </div>
                   <label class="checkbox is-size-6">
-                    <input type="checkbox" :checked="plantacao.nft">
-                    NFT
+                    <b class="mr-1 is-size-7">NFT</b>
+                    <input type="checkbox" :checked="plantacao.nft" disabled>
                   </label>
 
                   <div class="is-flex">
                     <div class="field">
-                      <label class="label">Custo total</label>
-                      <span class="tag is-info is-light is-large">{{ plantacao.custo_total }}</span>
+                      <label class="label is-small">Custo total</label>
+                      <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.custo_total }}</span>
                     </div>           
 
-                    <div class="field ml-5">
-                      <label class="label">Produção</label>
-                      <span class="tag is-info is-light is-large">{{ plantacao.producao}}</span>
+                    <div class="field ml-6">
+                      <label class="label is-small">Produção</label>
+                      <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.producao}}</span>
                     </div>
                   </div>
 
                     <div class="field">
-                      <label class="label">Horas de produção</label>
-                        <span class="tag is-info is-light is-large">{{ plantacao.horas_producao}}</span>
+                      <label class="label is-small">Horas de produção</label>
+                        <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.horas_producao}}</span>
                     </div>
 
                     <div class="field">
-                      <label class="label ">Dia de plantação
+                      <label class="label is-small">Dia de plantação
                       <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
                       </label>
-                        <span class="tag is-info is-light is-large">10/10/21</span>
+                        <span class="input is-info is-light is-small is-fullwidth">10/10/21</span>
                     </div>                    
 
-                    <div class="mt-5 is-flex">
-                      <button class="button is-link" @click="duplicar_planta(index)">Duplicar</button>
-                      <button class="button is-danger ml-3" @click="remover_planta(index)">Remover</button>
+                    <div class="mt-5 is-flex is-justify-content-space-between">
+                      <button class="button is-link is-small" @click="duplicar_planta(index)">Duplicar</button>
+                      <button class="button is-danger is-small" @click="remover_planta(index)">Remover</button>
                     </div>
                   </div>
                 </div>
 
                 <div class="column is-4">
                   <div class="has-background-white p-5 notification">
-                    <div class="field has-text-black">
-                      <label class="label">Tipo</label>
+                    <div class="has-text-black">
+                      <label class="label is-small">Tipo</label>
                       <div class="control">
                         <label class="radio">
                           <input type="radio" v-model="nova_plantacao.tipo" id="plant" value="plant">
-                          Planta
+                          Plant
                         </label>
                         <label class="radio">
                           <input type="radio" v-model="nova_plantacao.tipo" id="mother" value="mother">
-                          Mama
+                          Mother Tree
                         </label>
                       </div>
                     </div>
 
                   <label class="checkbox is-size-6">
+                    <b class="mr-1 is-size-7">NFT</b>
                     <input type="checkbox" v-model="nova_plantacao.nft">
-                    NFT
                   </label>
 
                   <div class="is-flex">
                     <div class="field">
-                      <label class="label">Custo total</label>
+                      <label class="label is-small">Custo total</label>
 
                       <div class="control">
-                        <input class="input" type="number" placeholder="150" v-model="nova_plantacao.custo_total" :disabled="nova_plantacao.nft">
+                        <input class="input is-small" type="number" placeholder="150" v-model="nova_plantacao.custo_total" :disabled="nova_plantacao.nft">
                       </div>
                     </div>    
 
                     <div class="field ml-2">
-                      <label class="label">Produção</label>
+                      <label class="label is-small">Produção</label>
                       <div class="control">
-                        <input class="input" type="number" placeholder="250" v-model="nova_plantacao.producao">
+                        <input class="input is-small" type="number" placeholder="250" v-model="nova_plantacao.producao">
                       </div>
                     </div>
                   </div>
 
                     <div class="field">
-                      <label class="label">Horas de produção</label>
+                      <label class="label is-small">Horas de produção</label>
                       <div class="control">
-                        <input class="input" type="number" placeholder="72" v-model="nova_plantacao.horas_producao">
+                        <input class="input is-small" type="number" placeholder="72" v-model="nova_plantacao.horas_producao">
                       </div>
                     </div>
 
                     <div class="field">
-                      <label class="label ">Dia de plantação
+                      <label class="label is-small">Dia de plantação
                       <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
                       </label>
                       <div class="control">
-                        <input class="input" type="date">
+                        <input class="input is-small" type="date">
                       </div>
                     </div>                    
 
                     <div class="mt-5 has-text-centered">
-                      <button class="button is-success" @click="adicionar_nova_planta(nova_plantacao)">Adicionar</button>
+                      <button class="button is-primary is-small" @click="adicionar_nova_planta(nova_plantacao)">Adicionar</button>
                     </div>
                   </div>
                 </div>
