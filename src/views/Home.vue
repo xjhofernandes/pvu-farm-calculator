@@ -200,7 +200,7 @@
                         Produzido : {{ ganhos_periodo[0]["produzido"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5">
-                        Faturamento : 1900 <b>BRL (R$)</b>
+                        Faturamento : {{ ganhos_periodo[0]["faturamento"] }} <b>PVU</b>
                       </div>    
                   </div>
                 </div>
@@ -222,7 +222,7 @@
                         Produzido : {{ ganhos_periodo[1]["produzido"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5">
-                        Faturamento : 1900 <b>BRL (R$)</b>
+                        Faturamento : {{ ganhos_periodo[1]["faturamento"] }} <b>PVU</b>
                       </div>                      
                   </div>
                 </div>
@@ -244,7 +244,7 @@
                         Produzido : {{ ganhos_periodo[2]["produzido"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5">
-                        Faturamento : 1900 <b>BRL (R$)</b>
+                        Faturamento : {{ ganhos_periodo[2]["faturamento"] }} <b>PVU</b>
                       </div>                     
                   </div>
                 </div>
