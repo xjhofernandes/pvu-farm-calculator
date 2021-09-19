@@ -1,10 +1,10 @@
 <template>
 <nav class="navbar">
   <div class="container">
-    <div id="navMenu" class="navbar-menu">
+    <div id="navMenu" class="navbar-menu is-active">
       
       <div class="is-flex has-text-white mt-3">
-        <p class="is-size-6">Deseja apoiar o projeto? Ajude com qualquer quantia. Carteira: <b>0xedF4C967E8f02fB39B0b36b3df10fbc406c99Bb9</b>  </p>
+        <p class="is-size-6">Deseja apoiar o projeto? Ajude com qualquer quantia. Carteira: <b class="tag is-dark is-medium">0xedF4C967E8f02fB39B0b36b3df10fbc406c99Bb9</b>  </p>
       </div>
 
       <div class="navbar-end">
@@ -342,12 +342,9 @@ export default {
 </script>
 
 <style scoped>
-/* .default-background-color{
-  color: #has-text-white;
-} */
 
 .bg-primary {
-	background-image: url(https://plantvsundead.com/assets/img/background.png);
+	background-image: url(../assets/img/background.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
