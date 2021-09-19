@@ -43,11 +43,11 @@
                       <div class="control">
                         <label class="radio">
                           <input type="radio" name="answer" disabled :checked="plantacao.tipo == 'plant'">
-                          Planta
+                          Plant
                         </label>
                         <label class="radio" >
                           <input type="radio" name="answer" disabled :checked="plantacao.tipo == 'mother'">
-                          Mama
+                          Mother Tree
                         </label>
                       </div>
                     </div>
@@ -113,9 +113,9 @@
                       <label class="label">Custo total</label>
 
                       <div class="control">
-                        <input class="input" type="number" placeholder="150" v-model="nova_plantacao.custo_total">
+                        <input class="input" type="number" placeholder="150" v-model="nova_plantacao.custo_total" :disabled="nova_plantacao.nft">
                       </div>
-                    </div>                    
+                    </div>    
 
                     <div class="field ml-2">
                       <label class="label">Produção</label>
@@ -288,6 +288,11 @@ export default {
   },
   methods: {
     adicionar_nova_planta(nova_plantacao) {
+      console.log(nova_plantacao);
+      if (nova_plantacao.nft == true){
+        nova_plantacao.custo_total = 0;
+      }
+
       this.listagem_plantacoes.push(nova_plantacao);
       this.nova_plantacao = {
           "tipo": "", 
