@@ -3,20 +3,14 @@
   <div class="container">
     <div id="navMenu" class="navbar-menu">
       
-      <div class="navbar-start">
-        <a class="navbar-item">
-          Home
-        </a>
-        <a class="navbar-item">
-          Documentation
-        </a>
+      <div class="is-flex has-text-white mt-3">
+        <p class="is-size-6">Deseja apoiar o projeto? Ajude com qualquer quantia. Carteira: <b>0xedF4C967E8f02fB39B0b36b3df10fbc406c99Bb9</b>  </p>
       </div>
 
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
             <a class="button is-dark">Github</a>
-            <a class="button is-link">Download</a>
           </div>
         </div>
       </div>
