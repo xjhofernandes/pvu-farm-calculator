@@ -42,11 +42,11 @@
                       <label class="label is-small">Tipo</label>
                       <div class="control">
                         <label class="radio">
-                          <input type="radio" name="answer" disabled :checked="plantacao.tipo == 'plant'">
+                          <input type="radio" name="answer" :checked="plantacao.tipo == 'plant'" disabled >
                           Plant
                         </label>
                         <label class="radio" >
-                          <input type="radio" name="answer" disabled :checked="plantacao.tipo == 'mother'">
+                          <input type="radio" name="answer" :checked="plantacao.tipo == 'mother'" disabled >
                           Mother Tree
                         </label>
                       </div>
@@ -56,13 +56,13 @@
                     <input type="checkbox" :checked="plantacao.nft" disabled>
                   </label>
 
-                  <div class="is-flex">
+                  <div class="is-flex is-justify-content-space-between">
                     <div class="field">
                       <label class="label is-small">Custo total</label>
                       <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.custo_total }}</span>
                     </div>           
 
-                    <div class="field ml-6">
+                    <div class="field">
                       <label class="label is-small">Produção</label>
                       <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.producao}}</span>
                     </div>
@@ -93,7 +93,7 @@
                       <label class="label is-small">Tipo</label>
                       <div class="control">
                         <label class="radio">
-                          <input type="radio" v-model="nova_plantacao.tipo" id="plant" value="plant" checked>
+                          <input type="radio" v-model="nova_plantacao.tipo" id="plant" value="plant">
                           Plant
                         </label>
                         <label class="radio">
@@ -161,7 +161,7 @@
                 <div class="dropdown mt-2">
                   <div class="dropdown-trigger">
                       <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                        <span>BRL (R$)</span>
+                        <span>PVU</span>
                           <div class="dropdown-menu" id="dropdown-menu" role="menu">
                       <div class="dropdown-content">
                         <a href="#" class="dropdown-item">
@@ -174,7 +174,7 @@
                           BNB
                         </a>
                         <a href="#" class="dropdown-item">
-                          PVU
+                          BRL (R$)
                         </a>              
                       </div>
                     </div>
@@ -262,8 +262,6 @@
 
 <script>
 
-//import DashboardChart from "@/components/DashboardChart.vue";
-
 export default {
   components: {
   },
@@ -293,8 +291,8 @@ export default {
       if (nova_plantacao.nft == true){
         nova_plantacao.custo_total = 0;
       }
-
-      if (! isNaN(nova_plantacao.producao) || !isNaN(nova_plantacao.horas_producao) || !isNaN(nova_plantacao.custo_total)){
+      console.log(this.listagem_plantacoes);
+      if (!isNaN(nova_plantacao.producao) && !isNaN(nova_plantacao.horas_producao) && !isNaN(nova_plantacao.custo_total)){
         this.listagem_plantacoes.push(nova_plantacao);
         this.nova_plantacao = {
             "tipo": "", 
@@ -304,6 +302,7 @@ export default {
             "nft": false
           };
       }
+      console.log(this.listagem_plantacoes);
 
     },
     duplicar_planta(index) {
