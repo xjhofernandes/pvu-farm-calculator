@@ -319,7 +319,7 @@ export default {
       };
       
       let data = await fetch(
-        "http://localhost:8000/api/obter-periodo-lucros",
+        "https://pvu-calculator-api.herokuapp.com/api/obter-periodo-lucros",
         requestOptions
       )
         .then((response) => response.json())
