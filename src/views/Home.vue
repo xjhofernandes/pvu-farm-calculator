@@ -2,6 +2,7 @@
 <nav class="navbar">
   <div class="container">
     <div id="navMenu" class="navbar-menu">
+      
       <div class="navbar-start">
         <a class="navbar-item">
           Home
@@ -52,7 +53,7 @@
                     </div>
                   <label class="checkbox is-size-6">
                     <input type="checkbox" :checked="plantacao.nft">
-                    NFT?
+                    NFT
                   </label>
 
                   <div class="is-flex">
@@ -104,7 +105,7 @@
 
                   <label class="checkbox is-size-6">
                     <input type="checkbox" v-model="nova_plantacao.nft">
-                    NFT?
+                    NFT
                   </label>
 
                   <div class="is-flex">
