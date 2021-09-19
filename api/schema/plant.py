@@ -7,3 +7,4 @@ class Plant(BaseModel):
     horas_producao: int
     custo_total: int
     nft: bool
+    moeda: str
