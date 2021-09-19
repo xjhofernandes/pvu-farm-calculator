@@ -41,13 +41,12 @@
                     <div class="has-text-black " >
                       <label class="label is-small">Tipo</label>
                       <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" :checked="plantacao.tipo == 'plant'" disabled >
-                          Plant
+                        <label class="radio" v-if="plantacao.tipo == 'plant'">
+                          <!-- <input type="radio" name="answer" checked> -->
+                          <span class="tag is-success">Plant</span>
                         </label>
-                        <label class="radio" >
-                          <input type="radio" name="answer" :checked="plantacao.tipo == 'mother'" disabled >
-                          Mother Tree
+                        <label class="radio" v-if="plantacao.tipo == 'mother'">
+                          <span class="tag is-success is-light">Mother Tree</span>
                         </label>
                       </div>
                     </div>
@@ -93,7 +92,7 @@
                       <label class="label is-small">Tipo</label>
                       <div class="control">
                         <label class="radio">
-                          <input type="radio" v-model="nova_plantacao.tipo" id="plant" value="plant">
+                          <input type="radio" v-model="nova_plantacao.tipo" id="plant" value="plant" checked>
                           Plant
                         </label>
                         <label class="radio">
@@ -275,7 +274,7 @@ export default {
         ],
       nova_plantacao :
         {
-          "tipo": "", 
+          "tipo": "plant",
           "producao": Number, 
           "horas_producao": Number,
           "custo_total": Number,
@@ -295,7 +294,7 @@ export default {
       if (!isNaN(nova_plantacao.producao) && !isNaN(nova_plantacao.horas_producao) && !isNaN(nova_plantacao.custo_total)){
         this.listagem_plantacoes.push(nova_plantacao);
         this.nova_plantacao = {
-            "tipo": "", 
+            "tipo": "plant", 
             "producao": Number, 
             "horas_producao": Number,
             "custo_total": Number,
@@ -339,7 +338,9 @@ export default {
       return data;
     },
     async atualizar_valores(){
-      this.ganhos_periodo = await this.obter_lucros(this.listagem_plantacoes);
+      if (this.listagem_plantacoes.length > 0){
+        this.ganhos_periodo = await this.obter_lucros(this.listagem_plantacoes);
+      }
     }
   }
 };
