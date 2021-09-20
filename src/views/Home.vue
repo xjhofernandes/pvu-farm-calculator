@@ -21,8 +21,10 @@
 <section class="hero is-link is-fullheight-with-navbar">
   <div class="hero-body bg-primary">
     <div class="container notification" style="background: #605080">
+        <div class="is-size-7">
+          ** Lógica de atributos de NFT's, extraida em <a class="has-text-weight-bold" href="https://pvuhub.info/#/" target=”_blank” style="text-decoration: none;">PVUHUB.info</a> 
+        </div>
       <div class="columns">
-
         <div class="column is-8">
            <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
               Minha plantação
@@ -48,6 +50,15 @@
                     <b class="mr-1 is-size-7">NFT</b>
                     <input type="checkbox" :checked="plantacao.nft" disabled>
                   </label>
+
+                    <div class="field">
+                      <label class="is-size-7"> <b>ID do NFT (ou seed) </b></label>
+                      <p class="has-text-black is-size-7"> <b>*Não é necessário preencher.</b> </p>
+                      <div class="control">
+                        <!-- <input class="input is-small" type="number" placeholder="72" v-model="nova_plantacao.id_planta"> -->
+                        <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.id_planta }}</span>
+                      </div>
+                    </div>                  
 
                   <div class="is-flex is-justify-content-space-between">
                     <div class="field">
@@ -98,22 +109,30 @@
 
                   <label class="checkbox is-size-6">
                     <b class="mr-1 is-size-7">NFT</b>
-                    <input type="checkbox" v-model="nova_plantacao.nft">
+                    <input type="checkbox" v-model="nova_plantacao.nft" :checked="(!isNaN(nova_plantacao.id_planta) && nova_plantacao.id_planta != 0)">
                   </label>
+
+                    <div class="field">
+                      <label class="is-size-7"> <b>ID do NFT (ou seed) </b></label>
+                      <p class="has-text-black is-size-7"> <b>*Não é necessário preencher.</b> </p>
+                      <div class="control">
+                        <input class="input is-small" type="number" placeholder="2009039914" v-model="nova_plantacao.id_planta">
+                      </div>
+                    </div>
 
                   <div class="is-flex">
                     <div class="field">
                       <label class="label is-small">Custo total</label>
 
                       <div class="control">
-                        <input class="input is-small" type="number" placeholder="150" v-model="nova_plantacao.custo_total" :disabled="nova_plantacao.nft">
+                        <input class="input is-small" type="number" placeholder="150" v-model="nova_plantacao.custo_total" :disabled="nova_plantacao.nft || (!isNaN(nova_plantacao.id_planta) && nova_plantacao.id_planta != 0)">
                       </div>
                     </div>    
 
                     <div class="field ml-2">
                       <label class="label is-small">Produção</label>
                       <div class="control">
-                        <input class="input is-small" type="number" placeholder="250" v-model="nova_plantacao.producao">
+                        <input class="input is-small" type="number" placeholder="250" v-model="nova_plantacao.producao" :disabled="(!isNaN(nova_plantacao.id_planta) && nova_plantacao.id_planta != 0)">
                       </div>
                     </div>
                   </div>
@@ -121,7 +140,7 @@
                     <div class="field">
                       <label class="label is-small">Horas de produção</label>
                       <div class="control">
-                        <input class="input is-small" type="number" placeholder="72" v-model="nova_plantacao.horas_producao">
+                        <input class="input is-small" type="number" placeholder="72" v-model="nova_plantacao.horas_producao" :disabled="(!isNaN(nova_plantacao.id_planta) && nova_plantacao.id_planta != 0)">
                       </div>
                     </div>
 
@@ -273,18 +292,29 @@ export default {
           "producao": Number, 
           "horas_producao": Number,
           "custo_total": Number,
-          "nft": false
+          "nft": false,
+          "id_planta" : Number,
         },
       listagem_plantacoes : [],
     };
   },
   methods: {
     adicionar_nova_planta(nova_plantacao) {
-      
-      console.log(nova_plantacao);
+      if (!isNaN(nova_plantacao.id_planta) && nova_plantacao.id_planta != 0){
+        let teste = this.id_calculate(nova_plantacao.id_planta);
+        nova_plantacao.producao = teste["LE"];
+        nova_plantacao.horas_producao = teste["hour"];
+        nova_plantacao.nft = true;
+        nova_plantacao.tipo = teste["type"].split(" ")[0].toLowerCase();
+      }
+      else{
+        nova_plantacao.id_planta = "Não informado";
+      }
+            
       if (nova_plantacao.nft == true){
         nova_plantacao.custo_total = 0;
       }
+
       console.log(this.listagem_plantacoes);
       if (!isNaN(nova_plantacao.producao) && !isNaN(nova_plantacao.horas_producao) && !isNaN(nova_plantacao.custo_total)){
         this.listagem_plantacoes.push(nova_plantacao);
@@ -293,7 +323,8 @@ export default {
             "producao": Number, 
             "horas_producao": Number,
             "custo_total": Number,
-            "nft": false
+            "nft": false,
+            "id_planta": Number
           };
       }
       console.log(this.listagem_plantacoes);
@@ -337,7 +368,484 @@ export default {
         this.ganhos_periodo = await this.obter_lucros(this.listagem_plantacoes);
       }
     }
-  }
+  },
+  setup() {
+const PlantInfo = [
+      {
+        id: "0",
+        element: "Fire",
+        baseLE: [400, 440, 511, 701],
+        hour: "48",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "1",
+        element: "Fire",
+        baseLE: [400, 440, 511, 701],
+        hour: "48",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "2",
+        element: "Ice",
+        baseLE: [500, 550, 591, 751],
+        hour: "60",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "3",
+        element: "Electro",
+        baseLE: [500, 550, 591, 751],
+        hour: "48",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "4",
+        element: "Water",
+        baseLE: [950, 1040, 1111, 1301],
+        hour: "108",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "5",
+        element: "Water",
+        baseLE: [950, 1040, 1111, 1301],
+        hour: "108",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "6",
+        element: "Ice",
+        baseLE: [500, 550, 591, 751],
+        hour: "60",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "7",
+        element: "Fire",
+        baseLE: [400, 440, 511, 701],
+        hour: "48",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "8",
+        element: "Electro",
+        baseLE: [500, 550, 591, 751],
+        hour: "48",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "9",
+        element: "Wind",
+        baseLE: [750, 800, 861, 1051],
+        hour: "72",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "10",
+        element: "Wind",
+        baseLE: [750, 800, 861, 1051],
+        hour: "72",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "11",
+        element: "Parasite",
+        baseLE: [900, 950, 1011, 1151],
+        hour: "120",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "12",
+        element: "Parasite",
+        baseLE: [900, 950, 1011, 1151],
+        hour: "120",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "13",
+        element: "Parasite",
+        baseLE: [900, 950, 1011, 1151],
+        hour: "120",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "14",
+        element: "Dark",
+        baseLE: [1200, 1840, 2211, 2401],
+        hour: "192",
+        step: "10",
+        type: "Plant"
+      },
+      {
+        id: "15",
+        element: "Electro",
+        baseLE: [500, 550, 591, 751],
+        hour: "48",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "16",
+        element: "Wind",
+        baseLE: [900, 950, 1011, 1151],
+        hour: "96",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "17",
+        element: "Fire",
+        baseLE: [650, 700, 811, 1001],
+        hour: "72",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "18",
+        element: "Light",
+        baseLE: [1200, 1250, 1311, 1401],
+        hour: "240",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "19",
+        element: "Light",
+        baseLE: [1200, 1250, 1311, 1401],
+        hour: "240",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "20",
+        element: "Light",
+        baseLE: [1600, 1650, 1711, 1901],
+        hour: "312",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "21",
+        element: "Light",
+        baseLE: [1600, 1650, 1711, 1901],
+        hour: "312",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "22",
+        element: "Parasite",
+        baseLE: [1300, 1350, 1411, 1551],
+        hour: "168",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "23",
+        element: "Parasite",
+        baseLE: [1300, 1350, 1411, 1551],
+        hour: "168",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "24",
+        element: "Parasite",
+        baseLE: [1300, 1350, 1411, 1551],
+        hour: "168",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "25",
+        element: "Metal",
+        baseLE: [3500, 4240, 4711, 5101],
+        hour: "336",
+        step: "10",
+        type: "Plant"
+      },
+      {
+        id: "26",
+        element: "Metal",
+        baseLE: [3500, 4240, 4711, 5101],
+        hour: "336",
+        step: "10",
+        type: "Plant"
+      },
+      {
+        id: "27",
+        element: "Metal",
+        baseLE: [5500, 6340, 6711, 7001],
+        hour: "480",
+        step: "10",
+        type: "Plant"
+      },
+      {
+        id: "28",
+        element: "Metal",
+        baseLE: [5500, 6340, 6711, 7001],
+        hour: "480",
+        step: "10",
+        type: "Plant"
+      },
+      {
+        id: "29",
+        element: "Ice",
+        baseLE: [800, 850, 911, 1151],
+        hour: "96",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "30",
+        element: "Fire",
+        baseLE: [650, 700, 811, 1001],
+        hour: "72",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "31",
+        element: "Dark",
+        baseLE: [1200, 1840, 2211, 2401],
+        hour: "192",
+        step: "10",
+        type: "Plant"
+      },
+      {
+        id: "32",
+        element: "Electro",
+        baseLE: [650, 700, 811, 1001],
+        hour: "60",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "33",
+        element: "Dark",
+        baseLE: [1400, 2040, 2411, 2701],
+        hour: "216",
+        step: "10",
+        type: "Plant"
+      },
+      {
+        id: "34",
+        element: "Electro",
+        baseLE: [650, 700, 811, 1001],
+        hour: "60",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "35",
+        element: "Dark",
+        baseLE: [1400, 2040, 2411, 2701],
+        hour: "216",
+        step: "10",
+        type: "Plant"
+      },
+      {
+        id: "36",
+        element: "Water",
+        baseLE: [950, 1040, 1111, 1301],
+        hour: "108",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "37",
+        element: "Wind",
+        baseLE: [900, 950, 1011, 1151],
+        hour: "96",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "38",
+        element: "Water",
+        baseLE: [1050, 1140, 1211, 1401],
+        hour: "120",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "39",
+        element: "Water",
+        baseLE: [1050, 1140, 1211, 1401],
+        hour: "120",
+        step: "1",
+        type: "Plant"
+      },
+      {
+        id: "90",
+        element: "Fire",
+        baseLE: [750, 1040, 1211, 1401],
+        hour: "48",
+        step: "5",
+        type: "Mother tree"
+      },
+      {
+        id: "91",
+        element: "Light",
+        baseLE: [1400, 1690, 1851, 2021],
+        hour: "240",
+        step: "5",
+        type: "Mother tree"
+      },
+      {
+        id: "92",
+        element: "Ice",
+        baseLE: [1050, 1340, 1511, 1701],
+        hour: "96",
+        step: "5",
+        type: "Mother tree"
+      },
+      {
+        id: "93",
+        element: "Dark",
+        baseLE: [2600, 2890, 3061, 3201],
+        hour: "216",
+        step: "5",
+        type: "Mother tree"
+      }
+    ];
+
+    const SAPLING = {
+      LE: 250,
+      hour: "72",
+      img: "sapling",
+      plantID: "sapling",
+      type: "Sapling"
+    };
+
+    const MAMA = {
+      LE: 850,
+      hour: "144",
+      img: "mama",
+      plantID: "mama",
+      type: "Mama"
+    };
+    const convertID = (plant) => {
+      let arrayID = plant.toString().split("");
+      // aaa-bb-c-dd-xx
+      // let type = `${arrayID[0]}${arrayID[1]}${arrayID[2]}`;
+      let id = parseInt(`${arrayID[3]}${arrayID[4]}`);
+      let img = `${arrayID[5]}`;
+      let rarity = `${arrayID[6]}${arrayID[7]}`;
+      return { id, img, rarity };
+    };
+
+    const calculateRarity = (num) => {
+      let rarityType = "",
+        color = "",
+        rarityNum = 0;
+      let rarity = parseInt(num);
+      if (rarity >= 0 && rarity <= 59) {
+        rarityType = "Common";
+        rarityNum = 0;
+        color = "#198754";
+      } else if (rarity >= 60 && rarity <= 88) {
+        rarityType = "Uncommon";
+        rarityNum = 1;
+        color = "#0d6efd";
+      } else if (rarity >= 89 && rarity <= 98) {
+        rarityType = "Rare";
+        rarityNum = 2;
+        color = "#dc3545";
+      } else if (rarity === 99) {
+        rarityType = "Mythic";
+        rarityNum = 3;
+        color = "#6610f2";
+      }
+      return { rarityType, rarityNum, color };
+    };
+
+    const searchPlantId = (id) => {
+      return PlantInfo.filter((plant) => {
+
+        return plant.id == id;
+      })[0];
+    };
+
+    const calculateLE = (baseLE, rarityNum, rarity, step) => {
+      let lowestRarity;
+      // eslint-disable-next-line default-case
+      switch (rarityNum) {
+        case 0:
+          lowestRarity = 0;
+          break;
+        case 1:
+          lowestRarity = 60;
+          break;
+        case 2:
+          lowestRarity = 89;
+          break;
+        case 3:
+          lowestRarity = 99;
+          break;
+      }
+      return baseLE[rarityNum] + lowestRarity + (rarity - lowestRarity) * step;
+    };
+
+    const convertToObj = (plantID) => {
+      if (isNaN(plantID)) {
+        return plantID === "sapling" ? SAPLING : MAMA;
+      }
+      let { id, img, rarity } = convertID(plantID);
+      let plantOBJ = Object.assign(
+        searchPlantId(id),
+        {
+          img,
+          rarity,
+          LE: "",
+          plantID
+        },
+        calculateRarity(rarity)
+      );
+      plantOBJ.LE = calculateLE(
+        plantOBJ.baseLE,
+        plantOBJ.rarityNum,
+        plantOBJ.rarity,
+        plantOBJ.step
+      );
+      let result = {
+        ...plantOBJ
+      };
+      delete result.baseLE;
+      delete result.step;
+      return result;
+    };
+
+    const id_calculate = (id) => {
+      if (Array.isArray(id)) {
+        let team = id.map((plantID) => {
+          return convertToObj(plantID);
+        });
+        return team;
+      } else {
+        return convertToObj(id);
+      }
+    };
+
+    return {
+      id_calculate
+    }
+}
 };
 </script>
 
