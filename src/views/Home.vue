@@ -347,6 +347,7 @@ export default {
       }
       else{
         nova_plantacao.id_planta = "Não informado";
+        nova_plantacao.imagem = "sapling"
       }
             
       if (nova_plantacao.nft == true){
