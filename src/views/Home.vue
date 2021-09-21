@@ -30,8 +30,9 @@
               Minha plantação
             </div>        
             <div class="box is-fluid has-text-centered"  style="background: #7F719A"> 
-              <div class="mb-3">
-                <button class="button mr-3 is-primary" @click="adicionar_nova_mama()">Adicionar Mama</button>
+
+              <div class="mb-3 is-flex is-justify-content-center">
+                <button class="button is-primary mr-2" @click="adicionar_nova_mama()">Adicionar Mama</button>
                 <button class="button is-info" @click="adicionar_nova_sapling()">Adicionar Sapling</button>
               </div>
               <div class="columns is-multiline">
