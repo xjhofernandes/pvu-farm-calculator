@@ -62,7 +62,6 @@
 
                     <div class="field">
                       <label class="is-size-7"> <b>ID do NFT (ou seed) </b></label>
-                      <p class="has-text-black is-size-7"> <b>*Não é necessário preencher.</b> </p>
                       <div class="control">
                         <!-- <input class="input is-small" type="number" placeholder="72" v-model="nova_plantacao.id_planta"> -->
                         <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.id_planta }}</span>
