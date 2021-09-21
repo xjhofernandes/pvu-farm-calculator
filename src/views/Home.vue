@@ -28,8 +28,12 @@
         <div class="column is-8">
            <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
               Minha plantação
-            </div>          
+            </div>        
             <div class="box is-fluid has-text-centered"  style="background: #7F719A"> 
+              <div class="mb-3">
+                <button class="button mr-3 is-primary" @click="adicionar_nova_mama()">Adicionar Mama</button>
+                <button class="button is-info" @click="adicionar_nova_sapling()">Adicionar Sapling</button>
+              </div>
               <div class="columns is-multiline">
 
                 <div class="column is-4" v-for="(plantacao, index) in listagem_plantacoes" :key="index">
@@ -299,6 +303,32 @@ export default {
     };
   },
   methods: {
+    adicionar_nova_mama(){
+      let nova_plantacao =
+        {
+          "tipo": "sapling",
+          "producao": 850, 
+          "horas_producao": 144,
+          "custo_total": 250,
+          "nft": false,
+          "id_planta" : "Não possui",
+        };
+      
+      this.listagem_plantacoes.push(nova_plantacao);
+    },    
+    adicionar_nova_sapling(){
+      let nova_plantacao =
+        {
+          "tipo": "sapling",
+          "producao": 250, 
+          "horas_producao": 72,
+          "custo_total": 150,
+          "nft": false,
+          "id_planta" : "Não possui",
+        };
+      
+      this.listagem_plantacoes.push(nova_plantacao);
+    },
     adicionar_nova_planta(nova_plantacao) {
       if (!isNaN(nova_plantacao.id_planta) && nova_plantacao.id_planta != 0){
         let teste = this.id_calculate(nova_plantacao.id_planta);
