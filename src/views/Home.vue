@@ -4,7 +4,7 @@
     <div id="navMenu" class="navbar-menu is-active has-text-centered">
 
       <div class="has-text-white mt-3">
-        <p class="is-size-6">Deseja apoiar o projeto? Ajude com qualquer quantia. Carteira: <b class="tag is-dark is-medium">0xedF4C967E8f02fB39B0b36b3df10fbc406c99Bb9</b>  </p>
+        <p class="is-size-5">Deseja apoiar o projeto? Ajude com qualquer quantia. Carteira: <b class="tag is-dark is-medium">0xedF4C967E8f02fB39B0b36b3df10fbc406c99Bb9</b>  </p>
       </div>
 
       <div class="navbar-end">
@@ -39,6 +39,10 @@
 
                 <div class="column is-4" v-for="(plantacao, index) in listagem_plantacoes" :key="index">
                   <div class="has-background-white p-5 notification is-fullheight">
+                   <figure class="image is-1by1">
+                      <!-- <img :src="require(`../assets/img/plantas/${plantacao.imagem}.png`)"> -->
+                      <img :src="require(`../assets/img/plantas/${plantacao.imagem}.png`)">
+                    </figure>                    
                     <div class="has-text-black " >
                       <label class="label is-small">Tipo</label>
                       <div class="control">
@@ -313,6 +317,7 @@ export default {
           "custo_total": 250,
           "nft": false,
           "id_planta" : "Não possui",
+          "imagem" : "mama"
         };
       
       this.listagem_plantacoes.push(nova_plantacao);
@@ -326,6 +331,7 @@ export default {
           "custo_total": 150,
           "nft": false,
           "id_planta" : "Não possui",
+          "imagem" : "sapling"
         };
       
       this.listagem_plantacoes.push(nova_plantacao);
@@ -337,6 +343,7 @@ export default {
         nova_plantacao.horas_producao = teste["hour"];
         nova_plantacao.nft = true;
         nova_plantacao.tipo = teste["type"].split(" ")[0].toLowerCase();
+        nova_plantacao.imagem = `${teste["id"]}_${teste["img"]}`
       }
       else{
         nova_plantacao.id_planta = "Não informado";
