@@ -306,7 +306,7 @@ export default {
     adicionar_nova_mama(){
       let nova_plantacao =
         {
-          "tipo": "plant",
+          "tipo": "mother",
           "producao": 850, 
           "horas_producao": 144,
           "custo_total": 250,
@@ -319,7 +319,7 @@ export default {
     adicionar_nova_sapling(){
       let nova_plantacao =
         {
-          "tipo": "mother",
+          "tipo": "plant",
           "producao": 250, 
           "horas_producao": 72,
           "custo_total": 150,
