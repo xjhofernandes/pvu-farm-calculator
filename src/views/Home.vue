@@ -82,12 +82,12 @@
                         <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.horas_producao}}</span>
                     </div>
 
-                    <div class="field">
+                    <!-- <div class="field">
                       <label class="label is-small">Dia de plantação
                       <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
                       </label>
                         <span class="input is-info is-light is-small is-fullwidth">10/10/21</span>
-                    </div>                    
+                    </div>                     -->
 
                     <div class="mt-5 is-flex is-justify-content-space-between">
                       <button class="button is-link is-small" @click="duplicar_planta(index)">Duplicar</button>
@@ -149,14 +149,14 @@
                       </div>
                     </div>
 
-                    <div class="field">
+                    <!-- <div class="field">
                       <label class="label is-small">Dia de plantação
                       <p class="has-text-black is-size-7"> <b> *Não é necessário preencher.</b> </p>
                       </label>
                       <div class="control">
                         <input class="input is-small" type="date">
                       </div>
-                    </div>                    
+                    </div>        -->
 
                     <div class="mt-5 has-text-centered">
                       <button class="button is-primary is-small" @click="adicionar_nova_planta(nova_plantacao)">Adicionar</button>
