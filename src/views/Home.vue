@@ -10,7 +10,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-dark" target=”_blank” href="">Github</a>
+            <a class="button is-dark" target=”_blank” href="https://github.com/xjhofernandes/pvu-farm-calculator">Github</a>
           </div>
         </div>
       </div>
