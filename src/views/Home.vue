@@ -4,7 +4,7 @@
     <div id="navMenu" class="navbar-menu is-active has-text-centered">
 
       <div class="has-text-white mt-3">
-        <p class="is-size-5">Deseja apoiar o projeto? Ajude com qualquer quantia. Carteira: <b class="tag is-dark is-medium">0xedF4C967E8f02fB39B0b36b3df10fbc406c99Bb9</b>  </p>
+        <p class="is-size-5">{{ linguagem_atual.nav_bar }}<b class="tag is-dark is-medium">0xedF4C967E8f02fB39B0b36b3df10fbc406c99Bb9</b>  </p>
       </div>
 
       <div class="navbar-end">
@@ -18,22 +18,34 @@
   </div>
 </nav>
 
-<section class="hero is-link is-fullheight-with-navbar">
-  <div class="hero-body bg-primary">
+
+<section class="hero is-link is-fullheight-with-navbar bg-primary">
+
+  <div class="hero-body p-1">
+    <div class="container">
+      <div class="is-flex is-justify-content-flex-end">
+        <BrazilIcon class="icon is-large pr-1" :class="linguagem == 'portuguese' ? '' : 'icone-transparent'" @click="alterar_linguagem('portuguese')"/>
+        <EuaIcon class="icon is-large pr-1" :class="linguagem == 'english' ? '' : 'icone-transparent'" @click="alterar_linguagem('english')"/>
+        <SpainIcon class="icon is-large" :class="linguagem == 'spanish' ? '' : 'icone-transparent'" @click="alterar_linguagem('spanish')"/>
+      </div>
+    </div>
+ </div>
+
+  <div class="hero-body">
     <div class="container notification" style="background: #605080">
         <div class="is-size-7">
-          ** Lógica de atributos de NFT's, extraida em <a class="has-text-weight-bold" href="https://pvuhub.info/#/" target=”_blank” style="text-decoration: none;">PVUHUB.info</a> 
+          {{ linguagem_atual.pvuhub_credits }} <a class="has-text-weight-bold" href="https://pvuhub.info/#/" target=”_blank” style="text-decoration: none;">PVUHUB.info</a> 
         </div>
       <div class="columns">
         <div class="column is-8">
            <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
-              Minha plantação
+              {{ linguagem_atual.my_plantation_text }}
             </div>        
             <div class="box is-fluid has-text-centered"  style="background: #7F719A"> 
 
               <div class="mb-3 is-flex is-justify-content-center">
-                <button class="button is-primary is-light mr-2" @click="adicionar_nova_mama()">Adicionar Mama</button>
-                <button class="button is-success" @click="adicionar_nova_sapling()">Adicionar Sapling</button>
+                <button class="button is-primary is-light mr-2" @click="adicionar_nova_mama()">{{ linguagem_atual.add_mama_button_text }}</button>
+                <button class="button is-success" @click="adicionar_nova_sapling()">{{ linguagem_atual.add_saplings_button_text }}</button>
               </div>
               <div class="columns is-multiline">
 
@@ -44,7 +56,7 @@
                       <img :src="require(`../assets/img/plantas/${plantacao.imagem}.png`)">
                     </figure>                    
                     <div class="has-text-black " >
-                      <label class="label is-small">Tipo</label>
+                      <label class="label is-small">{{ linguagem_atual.type_text }}</label>
                       <div class="control">
                         <label class="radio" v-if="plantacao.tipo == 'plant'">
                           <!-- <input type="radio" name="answer" checked> -->
@@ -61,7 +73,7 @@
                   </label>
 
                     <div class="field">
-                      <label class="is-size-7"> <b>ID do NFT (ou seed) </b></label>
+                      <label class="is-size-7"> <b>{{ linguagem_atual.id_nft_text }} </b></label>
                       <div class="control">
                         <!-- <input class="input is-small" type="number" placeholder="72" v-model="nova_plantacao.id_planta"> -->
                         <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.id_planta }}</span>
@@ -70,18 +82,18 @@
 
                   <div class="is-flex is-justify-content-space-between">
                     <div class="field">
-                      <label class="label is-small">Custo total</label>
+                      <label class="label is-small">{{ linguagem_atual.total_cust_text }}</label>
                       <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.custo_total }}</span>
                     </div>           
 
                     <div class="field">
-                      <label class="label is-small">Produção</label>
+                      <label class="label is-small">{{ linguagem_atual.production_text }}</label>
                       <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.producao}}</span>
                     </div>
                   </div>
 
                     <div class="field">
-                      <label class="label is-small">Horas de produção</label>
+                      <label class="label is-small">{{ linguagem_atual.hours_production_text }}</label>
                         <span class="input is-info is-light is-small is-fullwidth">{{ plantacao.horas_producao}}</span>
                     </div>
 
@@ -93,8 +105,8 @@
                     </div>                     -->
 
                     <div class="mt-5 is-flex is-justify-content-space-between">
-                      <button class="button is-link is-small" @click="duplicar_planta(index)">Duplicar</button>
-                      <button class="button is-danger is-small" @click="remover_planta(index)">Remover</button>
+                      <button class="button is-link is-small" @click="duplicar_planta(index)">{{ linguagem_atual.duplicated_button_text }}</button>
+                      <button class="button is-danger is-small" @click="remover_planta(index)">{{ linguagem_atual.remove_button_text }}</button>
                     </div>
                   </div>
                 </div>
@@ -102,7 +114,7 @@
                 <div class="column is-4">
                   <div class="has-background-white p-5 notification">
                     <div class="has-text-black">
-                      <label class="label is-small">Tipo</label>
+                      <label class="label is-small">{{ linguagem_atual.type_text }}</label>
                       <div class="control">
                         <label class="radio">
                           <input type="radio" v-model="nova_plantacao.tipo" id="plant" value="plant" checked>
@@ -121,8 +133,8 @@
                   </label>
 
                     <div class="field">
-                      <label class="is-size-7"> <b>ID do NFT (ou seed) </b></label>
-                      <p class="has-text-black is-size-7"> <b>*Não é necessário preencher.</b> </p>
+                      <label class="is-size-7"> <b>{{ linguagem_atual.id_nft_text }} </b></label>
+                      <p class="has-text-black is-size-7"> <b>{{ linguagem_atual.not_necessary_fillin_text }}</b> </p>
                       <div class="control">
                         <input class="input is-small" type="number" placeholder="2009039914" v-model="nova_plantacao.id_planta">
                       </div>
@@ -130,7 +142,7 @@
 
                   <div class="is-flex">
                     <div class="field">
-                      <label class="label is-small">Custo total</label>
+                      <label class="label is-small">{{ linguagem_atual.total_cust_text }}</label>
 
                       <div class="control">
                         <input class="input is-small" type="number" placeholder="150" v-model="nova_plantacao.custo_total" :disabled="nova_plantacao.nft || (!isNaN(nova_plantacao.id_planta) && nova_plantacao.id_planta != 0)">
@@ -138,7 +150,7 @@
                     </div>    
 
                     <div class="field ml-2">
-                      <label class="label is-small">Produção</label>
+                      <label class="label is-small">{{ linguagem_atual.production_text }}</label>
                       <div class="control">
                         <input class="input is-small" type="number" placeholder="250" v-model="nova_plantacao.producao" :disabled="(!isNaN(nova_plantacao.id_planta) && nova_plantacao.id_planta != 0)">
                       </div>
@@ -146,7 +158,7 @@
                   </div>
 
                     <div class="field">
-                      <label class="label is-small">Horas de produção</label>
+                      <label class="label is-small">{{ linguagem_atual.hours_production_text }}</label>
                       <div class="control">
                         <input class="input is-small" type="number" placeholder="72" v-model="nova_plantacao.horas_producao" :disabled="(!isNaN(nova_plantacao.id_planta) && nova_plantacao.id_planta != 0)">
                       </div>
@@ -173,11 +185,11 @@
 
         <div class="column is-4">
             <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
-              Ganhos por período
+              {{ linguagem_atual.earnings_periods_text }}
             </div>
           <div class="container is-size-3 p-1 notification" style="background: #7F719A;">
             <div class="is-flex is-align-items-center is-justify-content-space-between">
-              <span class="tag is-primary is-large">Moeda</span>
+              <span class="tag is-primary is-large">{{ linguagem_atual.monetary_text }}</span>
                 <div class="dropdown mt-2">
                   <div class="dropdown-trigger">
                       <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -207,21 +219,21 @@
             </div>             
 
             <div class="is-flex is-align-items-center is-justify-content-space-between">
-              <span class="tag is-primary is-large">7 Dias</span>
+              <span class="tag is-primary is-large">{{ linguagem_atual.seven_days_text }}</span>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Lucros : {{ ganhos_periodo[0]["lucro"] }} <b>LE</b>
+                        {{ linguagem_atual.profit_text }} : {{ ganhos_periodo[0]["lucro"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Gastos : {{ ganhos_periodo[0]["custo"] }} <b>LE</b>
+                        {{ linguagem_atual.spent_text }} : {{ ganhos_periodo[0]["custo"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Produzido : {{ ganhos_periodo[0]["produzido"] }} <b>LE</b>
+                        {{ linguagem_atual.produced_text }} : {{ ganhos_periodo[0]["produzido"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5">
-                        Faturamento : {{ ganhos_periodo[0]["faturamento"] }} <b>PVU</b>
+                        {{ linguagem_atual.revenues_text }} : {{ ganhos_periodo[0]["faturamento"] }} <b>PVU</b>
                       </div>    
                   </div>
                 </div>
@@ -229,50 +241,50 @@
             </div>
 
             <div class="is-flex is-align-items-center mt-3 is-justify-content-space-between">
-            <span class="tag is-primary is-large">14 Dias</span>
+            <span class="tag is-primary is-large">{{ linguagem_atual.fourteen_days_text }}</span>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Lucros : {{ ganhos_periodo[1]["lucro"] }} <b>LE</b>
+                        {{ linguagem_atual.profit_text }} : {{ ganhos_periodo[1]["lucro"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Gastos : {{ ganhos_periodo[1]["custo"] }} <b>LE</b>
+                        {{ linguagem_atual.spent_text }} : {{ ganhos_periodo[1]["custo"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Produzido : {{ ganhos_periodo[1]["produzido"] }} <b>LE</b>
+                        {{ linguagem_atual.produced_text }} : {{ ganhos_periodo[1]["produzido"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5">
-                        Faturamento : {{ ganhos_periodo[1]["faturamento"] }} <b>PVU</b>
-                      </div>                      
+                        {{ linguagem_atual.revenues_text }} : {{ ganhos_periodo[1]["faturamento"] }} <b>PVU</b>
+                      </div>                   
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="is-flex is-align-items-center mt-3 is-justify-content-space-between">
-            <span class="tag is-primary is-large">30 Dias</span>
+            <span class="tag is-primary is-large">{{ linguagem_atual.thirty_days_text }}</span>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Lucros : {{ ganhos_periodo[2]["lucro"] }} <b>LE</b>
+                        {{ linguagem_atual.profit_text }} : {{ ganhos_periodo[2]["lucro"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Gastos : {{ ganhos_periodo[2]["custo"] }} <b>LE</b>
+                        {{ linguagem_atual.spent_text }} : {{ ganhos_periodo[2]["custo"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5" style="border-bottom: solid 1px #ddd;">
-                        Produzido : {{ ganhos_periodo[2]["produzido"] }} <b>LE</b>
+                        {{ linguagem_atual.produced_text }} : {{ ganhos_periodo[2]["produzido"] }} <b>LE</b>
                       </div>
                       <div class="is-size-5">
-                        Faturamento : {{ ganhos_periodo[2]["faturamento"] }} <b>PVU</b>
-                      </div>                     
+                        {{ linguagem_atual.revenues_text }} : {{ ganhos_periodo[2]["faturamento"] }} <b>PVU</b>
+                      </div>               
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        <button class="button is-large is-fullwidth mt-3 is-primary" @click="atualizar_valores()" :class="is_loading ? 'is-loading' : ''">Atualizar Valores</button>
+        <button class="button is-large is-fullwidth mt-3 is-primary" @click="atualizar_valores()" :class="is_loading ? 'is-loading' : ''">{{ linguagem_atual.update_values_button_text }}</button>
         </div>        
       </div>
     </div>
@@ -281,12 +293,29 @@
 </template>
 
 <script>
+import BrazilIcon from "@/assets/svg/countries/brazil.svg";
+import EuaIcon from "@/assets/svg/countries/eua.svg";
+import SpainIcon from "@/assets/svg/countries/spain.svg";
+
+import portuguese_translate from "@/assets/translations/portuguese.json";
+import english_translate from "@/assets/translations/english.json";
+import spanish_translate from "@/assets/translations/spanish.json";
 
 export default {
   components: {
+    BrazilIcon,
+    EuaIcon,
+    SpainIcon
   },
   data() {
     return {
+      linguagens: {
+        "portuguese": portuguese_translate,
+        "english": english_translate,
+        "spanish": spanish_translate,
+      },
+      linguagem_atual: portuguese_translate,
+      linguagem: "portuguese",
       is_loading: false,
       ganhos_periodo :
         [
@@ -307,6 +336,10 @@ export default {
     };
   },
   methods: {
+    alterar_linguagem(linguagem) {
+    this.linguagem_atual = this.linguagens[linguagem];
+    this.linguagem = linguagem;
+    },
     adicionar_nova_mama(){
       let nova_plantacao =
         {
@@ -315,7 +348,7 @@ export default {
           "horas_producao": 144,
           "custo_total": 250,
           "nft": false,
-          "id_planta" : "Não possui",
+          "id_planta" : "N/A",
           "imagem" : "mama"
         };
       
@@ -329,7 +362,7 @@ export default {
           "horas_producao": 72,
           "custo_total": 150,
           "nft": false,
-          "id_planta" : "Não possui",
+          "id_planta" : "N/A",
           "imagem" : "sapling"
         };
       
@@ -345,7 +378,7 @@ export default {
         nova_plantacao.imagem = `${teste["id"]}_${teste["img"]}`
       }
       else{
-        nova_plantacao.id_planta = "Não informado";
+        nova_plantacao.id_planta = "N/A";
         nova_plantacao.imagem = "sapling"
       }
             
@@ -895,5 +928,9 @@ const PlantInfo = [
 	background-size: cover;
 	background-position: center;
   background-attachment: fixed;
+}
+
+.icone-transparent{
+  fill-opacity: 50%;
 }
 </style>
