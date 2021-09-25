@@ -346,7 +346,7 @@ export default {
           "tipo": "mother",
           "producao": 850, 
           "horas_producao": 144,
-          "custo_total": 250,
+          "custo_total": 200,
           "nft": false,
           "id_planta" : "N/A",
           "imagem" : "mama"
@@ -360,7 +360,7 @@ export default {
           "tipo": "plant",
           "producao": 250, 
           "horas_producao": 72,
-          "custo_total": 150,
+          "custo_total": 100,
           "nft": false,
           "id_planta" : "N/A",
           "imagem" : "sapling"
