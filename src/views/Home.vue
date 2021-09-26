@@ -24,18 +24,28 @@
   <div class="hero-body p-1">
     <div class="container">
       <div class="is-flex is-justify-content-flex-end">
-        <BrazilIcon class="icon is-large pr-1" :class="linguagem == 'portuguese' ? '' : 'icone-transparent'" @click="alterar_linguagem('portuguese')"/>
-        <EuaIcon class="icon is-large pr-1" :class="linguagem == 'english' ? '' : 'icone-transparent'" @click="alterar_linguagem('english')"/>
-        <SpainIcon class="icon is-large" :class="linguagem == 'spanish' ? '' : 'icone-transparent'" @click="alterar_linguagem('spanish')"/>
+        <BrazilIcon class="icon is-large pr-1 is-clickable" :class="linguagem == 'portuguese' ? '' : 'icone-transparent'" @click="alterar_linguagem('portuguese')"/>
+        <EuaIcon class="icon is-large pr-1 is-clickable" :class="linguagem == 'english' ? '' : 'icone-transparent'" @click="alterar_linguagem('english')"/>
+        <SpainIcon class="icon is-large is-clickable" :class="linguagem == 'spanish' ? '' : 'icone-transparent'" @click="alterar_linguagem('spanish')"/>
       </div>
     </div>
  </div>
 
+
   <div class="hero-body">
     <div class="container notification" style="background: #605080">
-        <div class="is-size-7">
+    
+      <div class="is-size-7 is-flex is-justify-content-space-between">
+        <div>
           {{ linguagem_atual.pvuhub_credits }} <a class="has-text-weight-bold" href="https://pvuhub.info/#/" target=”_blank” style="text-decoration: none;">PVUHUB.info</a> 
         </div>
+
+        <div class="has-text-white has-text-weight-bold">
+            <div class="tag is-black">PVU : {{ valores_pvu.dolar }} USD</div>
+          <div class="is-size-7 tag is-light has-text-black">Volume: {{ valores_pvu.volume }} USD</div>
+        </div> 
+      </div>
+
       <div class="columns">
         <div class="column is-8">
            <div class="is-size-2 has-text-centered has-text-weight-bold mb-5">
@@ -333,6 +343,10 @@ export default {
           "id_planta" : Number,
         },
       listagem_plantacoes : [],
+      valores_pvu: {
+        "dolar": 0,
+        "volume": 0,
+      }
     };
   },
   methods: {
@@ -438,7 +452,30 @@ export default {
       if (this.listagem_plantacoes.length > 0){
         this.ganhos_periodo = await this.obter_lucros(this.listagem_plantacoes);
       }
-    }
+    },
+    async obter_valores_pvu() {
+      const requestOptions = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      };
+      
+      let data = await fetch(
+        "https://pvu-calculator-api.herokuapp.com/api/obter-valores-pvu",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          return data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+        this.is_loading = false;
+      return data;
+    },    
   },
   setup() {
 const PlantInfo = [
@@ -916,6 +953,11 @@ const PlantInfo = [
     return {
       id_calculate
     }
+},
+  async beforeMount() {
+    var values = await this.obter_valores_pvu();
+    this.valores_pvu.dolar = values.usd;
+    this.valores_pvu.volume = values.volume;
 }
 };
 </script>
