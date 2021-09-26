@@ -32,7 +32,7 @@
  </div>
 
 
-  <div class="hero-body">
+  <div class="">
     <div class="container notification" style="background: #605080">
     
       <div class="is-size-7 is-flex is-justify-content-space-between">
