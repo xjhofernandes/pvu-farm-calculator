@@ -515,6 +515,7 @@
 	import BrazilIcon from "@/assets/svg/countries/brazil.svg";
 	import EuaIcon from "@/assets/svg/countries/eua.svg";
 	import SpainIcon from "@/assets/svg/countries/spain.svg";
+	
 	import portuguese_translate from "@/assets/translations/portuguese.json";
 	import english_translate from "@/assets/translations/english.json";
 	import spanish_translate from "@/assets/translations/spanish.json";
