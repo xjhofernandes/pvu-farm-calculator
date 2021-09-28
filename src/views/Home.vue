@@ -28,6 +28,17 @@
 	</nav>
 
 	<section class="hero is-link is-fullheight-with-navbar bg-primary">
+
+		<div class="hero-body p-1">
+			<div class="container">
+				<div class="is-flex is-justify-content-flex-end">
+					<BrazilIcon class="icon is-large pr-1 is-clickable" :class="linguagem == 'portuguese' ? '' : 'icone-transparent'" @click="alterar_linguagem('portuguese')"/>
+					<EuaIcon class="icon is-large pr-1 is-clickable" :class="linguagem == 'english' ? '' : 'icone-transparent'" @click="alterar_linguagem('english')"/>
+					<SpainIcon class="icon is-large is-clickable" :class="linguagem == 'spanish' ? '' : 'icone-transparent'" @click="alterar_linguagem('spanish')"/>
+				</div>
+			</div>
+		</div>
+		
 		<div class="my-4">
 			<div class="container notification" style="background: #605080">
 				<div class="is-size-7 is-flex is-justify-content-space-between">
@@ -501,11 +512,19 @@
 </template>
 
 <script>
+	import BrazilIcon from "@/assets/svg/countries/brazil.svg";
+	import EuaIcon from "@/assets/svg/countries/eua.svg";
+	import SpainIcon from "@/assets/svg/countries/spain.svg";
 	import portuguese_translate from "@/assets/translations/portuguese.json";
 	import english_translate from "@/assets/translations/english.json";
 	import spanish_translate from "@/assets/translations/spanish.json";
 
 	export default {
+		components: {
+			BrazilIcon,
+			EuaIcon,
+			SpainIcon
+		},
 		data() {
 			return {
 				linguagens: {
