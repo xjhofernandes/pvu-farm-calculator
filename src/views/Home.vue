@@ -342,6 +342,9 @@
 							class="container p-1 is-size-3 notification"
 							style="background: #7F719A;"
 						>
+								<p class="has-text-white is-size-6">
+									* TAX: 550 LE = 1 PVU
+								</p>
 							<div
 								class="is-flex is-align-items-center is-justify-content-space-between"
 							>
