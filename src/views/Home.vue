@@ -103,7 +103,7 @@
 										</figure>
 
 
-											<div class="has-text-black" v-if="!plantacao.nft">
+											<div class="has-text-black mb-2" v-if="!plantacao.nft">
 												<label class="label is-small">{{
 													linguagem_atual.type_text
 												}}</label>
@@ -120,7 +120,7 @@
 												</div>
 											</div>
 
-										<div class="is-flex is-justify-content-space-between" v-if="plantacao.nft">
+										<div class="is-flex is-justify-content-space-between mb-2" v-if="plantacao.nft">
 											<div class="has-text-black ">
 												<label class="label is-small">{{
 													linguagem_atual.type_text
@@ -186,19 +186,30 @@
 														<span class="tag is-success"
 														style="background-color: #844903;">Metal</span
 														>
-													</label>																																																																												
+													</label>
+													<label class="radio" v-if="plantacao.elemento == 'N/A'">
+														<span class="tag is-success"
+														style="background-color: #f03a5f"
+														>N/A</span
+														>
+													</label>																																																																																									
 												</div>
 											</div>
 
 										</div>
-
-											<label class="checkbox is-size-6">
+											<label class="checkbox is-size-6" v-if="!plantacao.nft">
 												<b class="mr-1 is-size-7">NFT</b>
 												<input
 													type="checkbox"
 													:checked="plantacao.nft"
 													disabled
 												/>
+											</label>
+											<label class="is-size-6" v-if="plantacao.nft">
+												<b class="mr-1 is-size-7">RARITY</b>
+												<div class="tag is-success" :style="{ backgroundColor: plantacao.cor}">
+													{{plantacao.raridade}}
+												</div>
 											</label>
 										<div class="field">
 											<label class="is-size-7">
@@ -692,9 +703,14 @@
 					nova_plantacao.tipo = teste["type"].split(" ")[0].toLowerCase();
 					nova_plantacao.imagem = `${teste["id"]}_${teste["img"]}`;
 					nova_plantacao.elemento = teste["element"];
+					nova_plantacao.raridade = teste["rarityType"];
+					nova_plantacao.cor = teste["color"];
 				} else {
 					nova_plantacao.id_planta = "N/A";
 					nova_plantacao.imagem = "sapling";
+					nova_plantacao.elemento = "N/A";
+					nova_plantacao.raridade = "N/A";
+					nova_plantacao.cor = '#f03a5f';
 				}
 
 				if (nova_plantacao.nft == true) {
