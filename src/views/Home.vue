@@ -83,7 +83,14 @@
 								>
 									{{ linguagem_atual.add_saplings_button_text }}
 								</button>
+
 							</div>
+								<button
+									class="button is-danger is-small is-flex mb-1 has-text-weight-bold"
+									@click="remover_todas_plantas()"
+								>
+									{{ linguagem_atual.clean_text}}
+								</button>
 							<div class="columns is-multiline">
 								<div
 									class="column is-4"
@@ -207,7 +214,7 @@
 											</label>
 											<label class="is-size-6" v-if="plantacao.nft">
 												<b class="mr-1 is-size-7">RARITY</b>
-												<div class="tag is-success" :style="{ backgroundColor: plantacao.cor}">
+												<div class="tag is-success " :style="{ backgroundColor: plantacao.cor}">
 													{{plantacao.raridade}}
 												</div>
 											</label>
@@ -650,6 +657,10 @@
 			};
 		},
 		methods: {
+			remover_todas_plantas(){
+				this.listagem_plantacoes = [];
+				localStorage.setItem("listagem_plantacoes", JSON.stringify([]));
+			},
 			salvarPlantacoes(plantacoes) {
 				localStorage.setItem("listagem_plantacoes", JSON.stringify(plantacoes));
 			},
