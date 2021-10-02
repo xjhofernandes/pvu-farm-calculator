@@ -24,5 +24,6 @@
     "spent_text": "Gasto",
     "produced_text": "Produzido",
     "revenues_text": "Faturamento",
-    "update_values_button_text": "Atualizar valores"
+    "update_values_button_text": "Atualizar valores",
+    "clean_text": "limpar tudo"
 }

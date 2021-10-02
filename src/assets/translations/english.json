@@ -24,5 +24,6 @@
     "spent_text": "Expenditure",
     "produced_text": "Produced",
     "revenues_text": "Turnover",
-    "update_values_button_text": "Update Values"
+    "update_values_button_text": "Update Values",
+    "clean_text": "clean all"
 }

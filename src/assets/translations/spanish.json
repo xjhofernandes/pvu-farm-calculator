@@ -24,5 +24,6 @@
     "spent_text": "Gastado",
     "produced_text": "Producido",
     "revenues_text": "Ingresos",
-    "update_values_button_text": "Actualizar valores"
+    "update_values_button_text": "Actualizar valores",
+    "clean_text": "limpiar todo"
 }
