@@ -101,31 +101,105 @@
 												"
 											/>
 										</figure>
-										<div class="has-text-black ">
-											<label class="label is-small">{{
-												linguagem_atual.type_text
-											}}</label>
-											<div class="control">
-												<label class="radio" v-if="plantacao.tipo == 'plant'">
-													<!-- <input type="radio" name="answer" checked> -->
-													<span class="tag is-success">Plant</span>
-												</label>
-												<label class="radio" v-if="plantacao.tipo == 'mother'">
-													<span class="tag is-success is-light"
-														>Mother Tree</span
-													>
-												</label>
-											</div>
-										</div>
-										<label class="checkbox is-size-6">
-											<b class="mr-1 is-size-7">NFT</b>
-											<input
-												type="checkbox"
-												:checked="plantacao.nft"
-												disabled
-											/>
-										</label>
 
+
+											<div class="has-text-black" v-if="!plantacao.nft">
+												<label class="label is-small">{{
+													linguagem_atual.type_text
+												}}</label>
+												<div class="control">
+													<label class="radio" v-if="plantacao.tipo == 'plant'">
+														<!-- <input type="radio" name="answer" checked> -->
+														<span class="tag is-success">Plant</span>
+													</label>
+													<label class="radio" v-if="plantacao.tipo == 'mother'">
+														<span class="tag is-success is-light"
+															>Mother Tree</span
+														>
+													</label>
+												</div>
+											</div>
+
+										<div class="is-flex is-justify-content-space-between" v-if="plantacao.nft">
+											<div class="has-text-black ">
+												<label class="label is-small">{{
+													linguagem_atual.type_text
+												}}</label>
+												<div class="control">
+													<label class="radio" v-if="plantacao.tipo == 'plant'">
+														<!-- <input type="radio" name="answer" checked> -->
+														<span class="tag is-success">Plant</span>
+													</label>
+													<label class="radio" v-if="plantacao.tipo == 'mother'">
+														<span class="tag is-success is-light"
+															>Mother Tree</span
+														>
+													</label>
+												</div>
+											</div>
+											
+											<div class="has-text-black" v-if="plantacao.nft">
+												<label class="label is-small">
+													element
+												</label>
+												<div class="control">
+													<label class="radio" v-if="plantacao.elemento == 'Fire'">
+														<!-- <input type="radio" name="answer" checked> -->
+														<span class="tag is-success" style="background-color: #7E2121;">Fire</span>
+													</label>
+													<label class="radio" v-if="plantacao.elemento == 'Ice'">
+														<span class="tag is-success"
+														style="background-color: #00647A;">Ice</span
+														>
+													</label>
+													<label class="radio" v-if="plantacao.elemento == 'Electro'">
+														<span class="tag is-success"
+														style="background-color: #BA7A14;">Electro</span
+														>
+													</label>
+													<label class="radio" v-if="plantacao.elemento == 'Water'">
+														<span class="tag is-success"
+														style="background-color: #1D3AA0;">Water</span
+														>
+													</label>
+													<label class="radio" v-if="plantacao.elemento == 'Wind'">
+														<span class="tag is-success"
+														style="background-color: #236025;">Wind</span
+														>
+													</label>
+													<label class="radio" v-if="plantacao.elemento == 'Parasite'">
+														<span class="tag is-success"
+														style="background-color: #790B8B;">Parasite</span
+														>
+													</label>
+													<label class="radio" v-if="plantacao.elemento == 'Dark'">
+														<span class="tag is-success"
+														style="background-color: #5E4771;">Dark</span
+														>
+													</label>
+													<label class="radio" v-if="plantacao.elemento == 'Light'">
+														<span class="tag is-success"
+														style="background-color: #649CDE;">Light</span
+														>
+													</label>
+													<label class="radio" v-if="plantacao.elemento == 'Metal'">
+														<span class="tag is-success"
+														style="background-color: #844903;">Metal</span
+														>
+													</label>																																																																												
+												</div>
+											</div>
+
+										</div>
+
+											<label class="checkbox is-size-6">
+												<b class="mr-1 is-size-7">NFT</b>
+												<input
+													type="checkbox"
+													:checked="plantacao.nft"
+													disabled
+												/>
+											</label>
 										<div class="field">
 											<label class="is-size-7">
 												<b>{{ linguagem_atual.id_nft_text }} </b></label
@@ -611,11 +685,13 @@
 			adicionar_nova_planta(nova_plantacao) {
 				if (!isNaN(nova_plantacao.id_planta) && nova_plantacao.id_planta != 0) {
 					let teste = this.id_calculate(nova_plantacao.id_planta);
+					console.log(teste);
 					nova_plantacao.producao = teste["LE"];
 					nova_plantacao.horas_producao = teste["hour"];
 					nova_plantacao.nft = true;
 					nova_plantacao.tipo = teste["type"].split(" ")[0].toLowerCase();
 					nova_plantacao.imagem = `${teste["id"]}_${teste["img"]}`;
+					nova_plantacao.elemento = teste["element"];
 				} else {
 					nova_plantacao.id_planta = "N/A";
 					nova_plantacao.imagem = "sapling";
