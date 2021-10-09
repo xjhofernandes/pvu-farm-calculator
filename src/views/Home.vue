@@ -436,7 +436,7 @@
 						>
 						
 						<div class="has-text-white has-text-weight-bold">
-						<div class="tag is-info">550 LE</div>
+						<div class="tag is-info">605 LE</div>
 						<div class="tag is-black">
 							1 PVU
 						</div>
