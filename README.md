@@ -10,6 +10,12 @@ Projeto desenvolvido para auxiliar jogadores de plant vs undead a calcular uma e
 
 Link da aplicação: https://pvu-farm-calculator.netlify.app/
 
+# Número de visualizações do projeto
+
+![imagem](https://user-images.githubusercontent.com/46504678/143089688-4237c5e8-9eb6-41d0-93f4-d887222dc8d7.png)
+
+
+
 # :world_map: Conteúdo
 1. [O que faz](#sparkles-o-que-faz)  
 2. [Pré-requisitos](#warning-pré-requisitos)
